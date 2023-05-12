@@ -37,18 +37,19 @@ class Dealership {
         string set_dealership_name(dealership_name) {this->dealership_name = dealership_name;}
 
         //other functions
+        //add/subtract funds
         void change_funds(double funds_added) {funds += funds_added;}
-
+        //add vehicle
         void add_vehicle(Vehicle vehicle) {}
-
+        //remove vehicle
         void remove_vehicle(Vehicle vehicle) {}
-
+        //search vehicle
         void search_vehicle(string make, string model) {}
-
+        //display cars
         void display_cars() {}
-
+        //display trucks
         void display_trucks() {}
-
+        //display vans
         void display_vans() {}
 };
 
