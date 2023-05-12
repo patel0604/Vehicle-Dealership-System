@@ -12,7 +12,7 @@ class Vehicle{
         double cost;
     public:
         //constructor
-        Vehicle(int lenght, int width, double weight, double cost) {}
+        Vehicle(int length, int width, double weight, double cost) : length(length), width(width), weight(weight), cost(cost) {}
         //methods
         //getters and setters
         double get_cost(){
