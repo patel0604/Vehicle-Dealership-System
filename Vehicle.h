@@ -11,13 +11,15 @@ class Vehicle{
         double weight;
         double cost;
     public:
+        //constructor
+        Vehicle(int lenght, int width, double weight, double cost) {}
         //methods
         //getters and setters
         double get_cost(){
             return cost;
         }
 
-        set_cost(double cost){
+        void set_cost(double cost){
             this->cost = cost;
         }
 
@@ -39,11 +41,11 @@ class Vehicle{
         /*splitting length and width into
         two separate set functions*/
 
-        set_length(int length){
+        void set_length(int length){
             this->length = length;
         }
 
-        set_width(int length){
+        void set_width(int length){
             this->length = length;
         }
 };
