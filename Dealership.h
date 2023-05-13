@@ -2,11 +2,12 @@
 #define DEALERSHIP_H
 #include <string>
 #include <iostream>
+#include "Vehicle.h"
 using namespace std;
 
 class Dealership {
     private:
-        const int capacity;
+        int capacity;
         int num_vehicles;
         string dealership_name;
         double funds;
@@ -34,7 +35,7 @@ class Dealership {
         int get_parking_width() {return parking_width;}
 
         //all set functions
-        string set_dealership_name(dealership_name) {this->dealership_name = dealership_name;}
+        string set_dealership_name(string dealership_name) {this->dealership_name = dealership_name;}
 
         //other functions
         //add/subtract funds

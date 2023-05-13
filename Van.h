@@ -13,16 +13,9 @@ class Van : public Truck {
         int passenger_limit;
     public:
         //passenger
-        Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_capacity, int passenger_limit) {
-            this->length = length;
-            this->width = width;
-            this->cost = cost;
-            this->brand = brand;
-            this->model = model;
-            this->number_plate = number_plate;
-            this->load_capacity = load_capacity;
-            this->passenger_limit = passenger_limit;
+        Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_capacity, int passenger_limit) : Truck(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity) {
             van_type = "passenger";
+            this->passenger_limit = passenger_limit;
             load_volume = 0;
         }
 
