@@ -52,10 +52,7 @@ class Dealership {
         //display vans
         void display_vans() {}
 
-
-
-
-        
+        ~Dealership() {}
 };
 
 #endif

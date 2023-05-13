@@ -41,6 +41,7 @@ class Vehicle{
             return width;
         }
 
+        ~Vehicle() {}
 };
 
 #endif
