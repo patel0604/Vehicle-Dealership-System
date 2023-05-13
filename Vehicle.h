@@ -2,9 +2,10 @@
 #define VEHICLE_H
 #include <iostream>
 #include <string>
+using namespace std;
 
 class Vehicle{
-    private:
+    protected:
         // attributes
         int length;
         int width;
@@ -12,7 +13,12 @@ class Vehicle{
         double cost;
     public:
         //constructor
-        Vehicle(int length, int width, double weight, double cost) : length(length), width(width), weight(weight), cost(cost) {}
+        Vehicle(int length, int width, double weight, double cost) {
+            this->length = length;
+            this->width = width;
+            this->weight = weight;
+            this->cost = cost;
+        }
         //methods
         //getters and setters
         double get_cost(){
@@ -27,9 +33,6 @@ class Vehicle{
             return weight;
         }
 
-        /*Splitting length and width
-        into two separate get functions*/
-
         int get_length(){
             return length;
         }
@@ -38,16 +41,6 @@ class Vehicle{
             return width;
         }
 
-        /*splitting length and width into
-        two separate set functions*/
-
-        void set_length(int length){
-            this->length = length;
-        }
-
-        void set_width(int length){
-            this->length = length;
-        }
 };
 
 #endif
