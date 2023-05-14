@@ -12,17 +12,37 @@ class Van : public Truck {
         string van_type;
         int passenger_limit;
     public:
-        //passenger
-        Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_capacity, int passenger_limit) : Truck(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity) {
-            van_type = "passenger";
-            this->passenger_limit = passenger_limit;
-            load_volume = 0;
-        }
-
-        //transport
-        Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity) : Truck(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity) {
-            van_type = "transport";
-            passenger_limit = 0;
+        Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity, int passenger_limit) {
+            if (load_volume == 0 && passenger_limit != 0) {
+                this->length = length;
+                this->width = width;
+                this->weight = weight;
+                this->cost = cost;
+                this->brand = brand;
+                this->model = model;
+                this->number_plate = number_plate;
+                this->load_volume = 0;
+                this->load_capacity = load_capacity;
+                this->passenger_limit = passenger_limit;
+                van_type = "passenger"; 
+                cout << "initialised passenger van" << endl;
+            } else if(passenger_limit == 0 && load_volume != 0) {
+                this->length = length;
+                this->width = width;
+                this->weight = weight;
+                this->cost = cost;
+                this->brand = brand;
+                this->model = model;
+                this->number_plate = number_plate;
+                this->load_volume = load_volume;
+                this->load_capacity = load_capacity;
+                this->passenger_limit = 0;
+                van_type = "transport";
+                cout << "initialised transport van" << endl;
+            } else {
+                cout << "wrong constructor input please try again" << endl;
+                van_type = "N/A";
+            }
         }
 
         string get_van_type() {return van_type;}

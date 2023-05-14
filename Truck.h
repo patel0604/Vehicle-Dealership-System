@@ -11,6 +11,10 @@ class Truck : public Car {
         int load_volume;
         int load_capacity;
     public:
+        Truck():Car(){
+            load_volume = 0;
+            load_capacity = 0;
+        }
         Truck(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity) : Car(length, width, weight, cost, brand, model, number_plate) {
             this->load_volume = load_volume;
             this->load_capacity = load_capacity;
