@@ -13,7 +13,7 @@ class Dealership {
         double funds;
         int parking_length;
         int parking_width;
-        // pointer to a pointer of a vector of vehicles
+        Vehicle** dealership;
     public:
         //constructor for dealership
         Dealership(string dealership_name, int capacity, double funds, int parking_length, int parking_width){
@@ -23,7 +23,10 @@ class Dealership {
             this->parking_length = parking_length;
             this->parking_width = parking_width;
             num_vehicles = 0;
-            // initialise the pointer to pointer
+            dealership = new Vehicle*[capacity];
+            for (int i = 0; i < capacity; i++) {
+                dealership[i] = nullptr;
+            }
         }
 
         //all get functions
@@ -37,19 +40,30 @@ class Dealership {
         //all set functions
         string set_dealership_name(string dealership_name) {this->dealership_name = dealership_name;}
 
-        //other functions
+        //other functions:
+
         //add/subtract funds
         void change_funds(double funds_added) {funds += funds_added;}
+
         //add vehicle
-        void add_vehicle(Vehicle vehicle) {}
+        bool add_vehicle(Vehicle vehicle) {
+            if (num_vehicles < capacity) {
+                //add vehicles
+            }
+        }
+
         //remove vehicle
         void remove_vehicle(Vehicle vehicle) {}
+
         //search vehicle
         void search_vehicle(string make, string model) {}
+
         //display cars
         void display_cars() {}
+
         //display trucks
         void display_trucks() {}
+
         //display vans
         void display_vans() {}
 
