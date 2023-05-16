@@ -49,9 +49,11 @@ class Van : public Truck {
             }
         }
 
+        //getters
         string get_van_type() {return van_type;}
         int get_passenger_limit() {return passenger_limit;}
 
+        //destructor
         ~Van() {}
 };
 
