@@ -70,7 +70,7 @@ class Dealership {
                         return true;
                     }
                 }
-                cout << "error: vehicle not added to the dealership despite there being space" < endl;
+                cout << "error: vehicle not added to the dealership despite there being space" << endl;
             } else {
                 cout << "dealership is full" << endl;
             }
@@ -93,7 +93,7 @@ class Dealership {
                     //if the number plate of the vehicle matches the number plate passed in the function
                     if (dealership[i]->get_number_plate() == number_plate) {
                         //create a copy object vehicle (with default constructor)
-                        Vehicle* copy;
+                        Vehicle* copy = nullptr;
                         //copy the contents of the vehicle to the copy object
                         *copy = *dealership[i];
                         //make the vehicle pointer in the dealership the nullptr
@@ -127,15 +127,51 @@ class Dealership {
         //display cars
         void display_cars() {
             for (int i = 0; i < capacity; i++) {
-                if ()
+                //display all attributes for each car on one line
+                if (dealership[i]->get_vehicle_type() == "car") {
+                    cout << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", licence plate: " << dealership[i]->get_number_plate();
+                    cout << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
+                    cout << "kg, cost: $" << dealership[i]->get_cost() << endl;
+                }
             }
         }
 
         //display trucks
-        void display_trucks() {}
+        void display_trucks() {
+            for (int i = 0; i < capacity; i++) {
+                //display all attributes for each truck on one line
+                if (dealership[i]->get_vehicle_type() == "truck") {
+                    cout << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                    cout << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm , weight: " << dealership[i]->get_weight();
+                    cout << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
+                    cout << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
+                }
+            }
+        }
 
         //display vans
-        void display_vans() {}
+        void display_vans() {
+            for (int i = 0; i < capacity; i++) {
+                //display all attributes for each van on one line
+                if (dealership[i]->get_vehicle_type() == "van") {
+                    if (dealership[i]->get_van_type() == "passenger") {
+                        //if the van is of type passenger
+                        cout << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                        cout << ", van type: passenger, dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm , weight: " << dealership[i]->get_weight();
+                        cout << "kg, cost: $" << dealership[i]->get_cost() << ", load capacity: " << dealership[i]->get_load_capacity();
+                        cout << "kg, passenger limit: " << dealership[i]->get_passenger_limit() << endl;
+                    } else if (dealership[i]->get_van_type() == "transport") {
+                        //if the van is of type transport
+                        cout << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                        cout << ", van type: transport, dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm , weight: " << dealership[i]->get_weight();
+                        cout << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
+                        cout << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
+                    } else {
+                        cout << "error: neither type passenger or transport - debug message" << endl;
+                    }
+                }
+            }
+        }
 
         ~Dealership() {}
 };

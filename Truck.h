@@ -15,11 +15,13 @@ class Truck : public Car {
     public:
         //defualt constructor
         Truck():Car(){
+            vehicle_type = "truck";
             load_volume = 0;
             load_capacity = 0;
         }
         //constructor
         Truck(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity) : Car(length, width, weight, cost, brand, model, number_plate) {
+            vehicle_type = "truck";
             this->load_volume = load_volume;
             this->load_capacity = load_capacity;
         }

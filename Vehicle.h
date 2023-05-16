@@ -7,6 +7,7 @@ using namespace std;
 class Vehicle{
     protected:
         // attributes
+        string vehicle_type;
         int length;
         int width;
         double weight;
@@ -14,6 +15,7 @@ class Vehicle{
     public:
         //default constructor
         Vehicle(){
+            vehicle_type = "N/A";
             length = 0;
             width = 0;
             weight = 0;
@@ -21,6 +23,7 @@ class Vehicle{
         }
         //constructor
         Vehicle(int length, int width, double weight, double cost) {
+            vehicle_type = "N/A";
             this->length = length;
             this->width = width;
             this->weight = weight;
@@ -28,6 +31,8 @@ class Vehicle{
         }
         
         //getters
+        string get_vehicle_type(){return vehicle_type;}
+        
         double get_cost(){return cost;}
 
         double get_weight(){return weight;}
@@ -53,7 +58,7 @@ class Vehicle{
         virtual int get_load_capacity() {return 0;}
 
         //van
-        virtual string get_van_type() {return "";}
+        virtual string get_van_type() {return "N/A";}
         virtual int get_passenger_limit() {return 0;}
 
         //destructor
