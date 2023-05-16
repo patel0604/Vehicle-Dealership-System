@@ -7,11 +7,15 @@
 #include "Truck.h"
 using namespace std;
 
+//derived from truck
 class Van : public Truck {
     private:
+        //attributes
         string van_type;
         int passenger_limit;
     public:
+        //constructor
+        //if statements used inside the constructor to create multiple constructor cases regarding the 2 types of vans
         Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity, int passenger_limit) {
             if (load_volume == 0 && passenger_limit != 0) {
                 this->length = length;

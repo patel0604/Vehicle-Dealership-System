@@ -12,39 +12,33 @@ class Vehicle{
         double weight;
         double cost;
     public:
-        //constructor
+        //default constructor
         Vehicle(){
             length = 0;
             width = 0;
             weight = 0;
             cost = 0;
         }
+        //constructor
         Vehicle(int length, int width, double weight, double cost) {
             this->length = length;
             this->width = width;
             this->weight = weight;
             this->cost = cost;
         }
-        //methods
-        //getters and setters
-        double get_cost(){
-            return cost;
-        }
+        
+        //getters
+        double get_cost(){return cost;}
 
+        double get_weight(){return weight;}
+
+        int get_length(){return length;}
+
+        int get_width(){return width;}
+
+        //setters
         void set_cost(double cost){
             this->cost = cost;
-        }
-
-        double get_weight(){
-            return weight;
-        }
-
-        int get_length(){
-            return length;
-        }
-
-        int get_width(){
-            return width;
         }
 
         //virtual functions
@@ -62,6 +56,7 @@ class Vehicle{
         virtual string get_van_type() {return "";}
         virtual int get_passenger_limit() {return 0;}
 
+        //destructor
         virtual ~Vehicle() {}
 };
 
