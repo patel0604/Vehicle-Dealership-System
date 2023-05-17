@@ -10,7 +10,7 @@ using namespace std;
 //inherited from abstract class customer
 class Buyer : public Customer {
     private:
-        
+        //no attributes
     public:
         //buyer constructor
         Buyer(string name, string licence_number, double wallet, int vehicle_amount) : Customer(name, licence_number, wallet, vehicle_amount) {}
