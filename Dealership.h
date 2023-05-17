@@ -113,13 +113,33 @@ class Dealership {
             return nullptr;
         }
 
-        //search vehicle of specific brand and model and return their position in the dealership
-        void search_vehicle(string brand, string model) {
+        //search vehicle of specific brand and model and display their position in the dealership
+        void search_vehicle_brand(string brand, string model) {
             for (int i = 0; i < capacity; i++) {
                 if (dealership[i]->get_brand() == brand && dealership[i]->get_model() == model) {
                     cout << brand << " " << model << " at parking space: " << i+1 << endl;
                 }
             }
+        }
+
+        //search vehicle of specific number plate and return their position in the dealership
+        int search_vehicle_number_plate(string number_plate) {
+            for (int i = 0; i < capacity; i++) {
+                if (dealership[i]->get_number_plate() == number_plate) {
+                    //return the index of the vehicle in the dealership array
+                    return i;
+                }
+            }
+            cout << "error vehicle number plate not found" << endl;
+            return -1;
+        }
+
+        //pass the position of the vehicle and return its cost
+        double get_vehicle_cost(int vehicle_position) {
+            //retrieve the cost of the vehicle
+            double vehicle_cost = dealership[vehicle_position]->get_cost();
+            //return the cost
+            return vehicle_cost;
         }
 
         //(new function for printing out the full list of all vehicles onto a file and open it on screen)

@@ -11,12 +11,16 @@ class Customer {
         string name;
         string licence_number;
         double wallet;
+        //number of vehicles the customer wants to buy/sell
         int vehicle_amount;
+        //used as the index for the vehicles array, starts at 0
+        int vehicles_index;
         //making a pointer to a pointer of class vehicle 
         Vehicle** vehicles;
     public:
         //constructor for customer
         Customer(string name, string licence_number, double wallet, int vehicle_amount) : name(name), licence_number(licence_number), wallet(wallet), vehicle_amount(vehicle_amount) {
+            vehicles_index = 0;
             //making an array of size num_vehicles for all vehicles the customer wants to buy/sell
             vehicles = new Vehicle*[vehicle_amount];
             //initialising an empty array of vehicles
@@ -40,12 +44,7 @@ class Customer {
         //abstract function for buying/selling vehicles
         virtual void vehicle_transaction() = 0;
 
-        ~Customer() {
-            for (int i = 0; i < vehicle_amount; i++) {
-                delete[] vehicles[i];
-            }
-            delete[] vehicles;
-        }
+        ~Customer() {}
 };
 
 #endif
