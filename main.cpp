@@ -13,7 +13,7 @@ int main() {
     Vehicle* vehicle1 = &van1;
     cout << vehicle1->get_model() << endl;
 
-    Car car1(-30,150,1500, -15000,"toyota","camry","KS390");
+    Car car1(30,150,1500, -15000,"","camry","KS390");
     Vehicle* vehicle2 = &car1;
     cout << vehicle2->get_cost() << endl;
     
@@ -23,7 +23,7 @@ int main() {
     cout << vehicle3 -> get_length() << endl;
     cout << vehicle3 -> get_load_capacity() << endl;
 
-    Truck truck2(700, 300, 5000, 80000, "Scania", "L-Series", "S123ABC", 30000, 12345); /*testing std. contructor*/
+    Truck truck2(700, 300, 5000, 80000, " ", "L-Series", "S123ABC", 30000, 12345); /*testing std. contructor*/
     Vehicle* vehicle4 = &truck2;
     cout << vehicle4 -> get_brand() << endl;
 
@@ -31,7 +31,7 @@ int main() {
     Vehicle vehicle_a; /*tesing def. constructor*/
     cout << vehicle_a.get_brand() << endl;
 
-    //Vehicle vehicle_b(1,2,3,4,5); /*testing for incorrect amount of arguments for the contructor*/
+    Vehicle vehicle_b(1,2,3,4,5); /*testing for incorrect amount of arguments for the contructor*/
 
 
 

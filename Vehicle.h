@@ -31,7 +31,7 @@ class Vehicle{
                 vehicle_type = "N/A";
             }
             else{
-                cout << "invalid inputs values for constructor" << endl;
+                cout << "invalid inputs values for constructor " << endl;
             }
         }
         
