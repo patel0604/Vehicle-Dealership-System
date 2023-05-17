@@ -23,28 +23,21 @@ class Vehicle{
         }
         //constructor
         Vehicle(int length, int width, double weight, double cost) {
-<<<<<<< HEAD
-            if (length > 0 && width > 0 && weight> 0 && cost > - 1){
+            if (length > 0 && width > 0 && weight> 0 && cost >= 0){
                 this->length = length;
                 this->width = width;
                 this->weight = weight;
                 this->cost = cost;
+                vehicle_type = "N/A";
             }
             else{
-                cout<<"invalid input"<<endl;
+                cout << "invalid inputs values for constructor" << endl;
             }
-=======
-            vehicle_type = "N/A";
-            this->length = length;
-            this->width = width;
-            this->weight = weight;
-            this->cost = cost;
->>>>>>> dc0131da8a0397907551b5b204d3099efcd215d3
         }
         
         //getters
         string get_vehicle_type(){return vehicle_type;}
-        
+
         double get_cost(){return cost;}
 
         double get_weight(){return weight;}
@@ -58,12 +51,14 @@ class Vehicle{
             this->cost = cost;
         }
 
+        
         //virtual functions
         //car
         virtual string get_brand() {return "N/A";}
         virtual string get_model() {return "N/A";}
         virtual string get_number_plate() {return "N/A";}
         virtual void set_number_plate(string number_plate) {}
+
 
         //truck
         virtual int get_load_volume() {return 0;}
