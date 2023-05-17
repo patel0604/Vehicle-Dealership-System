@@ -18,7 +18,7 @@ class Seller : public Customer {
             //initialise a vehicle and add it to the vector
         }
 
-        void vehicle_transaction() {
+        void vehicle_transaction() { //also add a cost conditional
             //remove a vehicle from the vector and add it to the dealership
         }
 

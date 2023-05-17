@@ -33,7 +33,10 @@ class Buyer : public Customer {
                     vehicles_index++;
                     //the cost of the vehicle is subtracted from the buyer
                     change_wallet(-vehicle_cost);
-                    cout << "funds subtracted from the buyer" << endl;
+                    cout << "funds subtracted from the buyer - debug message" << endl;
+                    //the value of the vehicle is added to the dealership's funds
+                    dealership.change_funds(vehicle_cost);
+                    cout << "funds added to the dealership - debug message" << endl;
                 } else {
                     cout << "buyer does not have enough funds for transaction -> aborting transaction" << endl;
                 }

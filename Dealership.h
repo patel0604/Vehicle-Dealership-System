@@ -53,25 +53,30 @@ class Dealership {
         //add vehicle
         //pass the address to the vehicle being added as input
         bool add_vehicle(Vehicle* vehicle) {
-            //if there is space in the dealership
+            //if there is space in the dealership and the vehicle meets the spatial limitations
             if (num_vehicles < capacity) {
                 cout << "there is space is the dealership - debug message" << endl;
-                //search through the dealership
-                for (int i = 0; i < capacity; i++) {
-                    //when free space (empty pointer) is found
-                    if (dealership[i] == nullptr) {
-                        //add the contents of the passed vehicle to the vehicle in the dealership
-                        *dealership[i] = *vehicle;
-                        //free the pointer of the passed vehicle
-                        delete vehicle;
-                        cout << "passed vehicle pointer deleted - debug message" << endl;
-                        //increase the number of vehicles in dealership
-                        num_vehicles++;
-                        cout << "Vehicle added to the dealership " << "at parking space: " << i+1 << endl;
-                        return true;
+                if (vehicle->get_length() <= parking_length && vehicle->get_width() <= parking_width) {
+                    cout << "the vehicle meets the spatial limitatios of the dealership - debug message" << endl;
+                    //search through the dealership
+                    for (int i = 0; i < capacity; i++) {
+                        //when free space (empty pointer) is found
+                        if (dealership[i] == nullptr) {
+                            //add the contents of the passed vehicle to the vehicle in the dealership
+                            *dealership[i] = *vehicle;
+                            //free the pointer of the passed vehicle
+                            delete vehicle;
+                            cout << "passed vehicle pointer deleted - debug message" << endl;
+                            //increase the number of vehicles in dealership
+                            num_vehicles++;
+                            cout << "Vehicle added to the dealership " << "at parking space: " << i+1 << endl;
+                            return true;
+                        }
                     }
+                    cout << "error: vehicle not added to the dealership despite there being space" << endl;
+                } else {
+                    cout << "vehicle does not meet the spatial limitations" << endl;
                 }
-                cout << "error: vehicle not added to the dealership despite there being space" << endl;
             } else {
                 cout << "dealership is full" << endl;
             }
@@ -100,6 +105,8 @@ class Dealership {
                         //make the vehicle pointer in the dealership the nullptr
                         dealership[i] = nullptr;
                         cout << "vehicle " << i+1 << " removed from the dealership" << endl;
+                        //number of vehicles in the dealership decreases by 1;
+                        num_vehicles--;
                         //return the pointer of the copied vehicle
                         return copy;
                     }
