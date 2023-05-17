@@ -21,10 +21,15 @@ class Vehicle{
         }
         //constructor
         Vehicle(int length, int width, double weight, double cost) {
-            this->length = length;
-            this->width = width;
-            this->weight = weight;
-            this->cost = cost;
+            if (length > 0 && width > 0 && weight> 0 && cost > - 1){
+                this->length = length;
+                this->width = width;
+                this->weight = weight;
+                this->cost = cost;
+            }
+            else{
+                cout<<"invalid input"<<endl;
+            }
         }
         
         //getters
