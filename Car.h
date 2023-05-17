@@ -15,12 +15,14 @@ class Car : public Vehicle {
     public:
         //default constructor
         Car():Vehicle(){
+            vehicle_type = "car";
             brand = "N/A";
             model = "N/A";
             number_plate = "N/A";
         }
         //constructor
         Car(int length, int width, double weight, double cost, string brand, string model, string number_plate) : Vehicle(length, width, weight, cost) {
+            vehicle_type = "car";
             this->brand = brand;
             this->model = model;
             this->number_plate = number_plate;

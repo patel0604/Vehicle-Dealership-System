@@ -18,6 +18,8 @@ class Van : public Truck {
         //if statements used inside the constructor to create multiple constructor cases regarding the 2 types of vans
         Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity, int passenger_limit) {
             if (load_volume == 0 && passenger_limit != 0) {
+                vehicle_type = "van";
+                van_type = "passenger"; 
                 this->length = length;
                 this->width = width;
                 this->weight = weight;
@@ -28,9 +30,10 @@ class Van : public Truck {
                 this->load_volume = 0;
                 this->load_capacity = load_capacity;
                 this->passenger_limit = passenger_limit;
-                van_type = "passenger"; 
                 cout << "initialised passenger van" << endl;
             } else if(passenger_limit == 0 && load_volume != 0) {
+                vehicle_type = "van";
+                van_type = "transport";
                 this->length = length;
                 this->width = width;
                 this->weight = weight;
@@ -41,7 +44,6 @@ class Van : public Truck {
                 this->load_volume = load_volume;
                 this->load_capacity = load_capacity;
                 this->passenger_limit = 0;
-                van_type = "transport";
                 cout << "initialised transport van" << endl;
             } else {
                 cout << "wrong constructor input please try again" << endl;
