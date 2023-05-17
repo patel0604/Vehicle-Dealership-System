@@ -37,6 +37,12 @@ class Car : public Vehicle {
         void set_number_plate(string number_plate) {
             this->number_plate = number_plate;
         }
+        virtual void set_brand(string brand) {
+            this->brand = brand;
+        }
+        virtual void set_model(string model) {
+            this->model = model;
+        }
 
         //destructor
         ~Car() {}

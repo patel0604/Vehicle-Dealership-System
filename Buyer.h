@@ -12,7 +12,7 @@ class Buyer : public Customer {
     public:
         Buyer(string name, string licence_number, double wallet, int num_vehicles) : Customer(name, licence_number, wallet, num_vehicles) {}
 
-        void buy_vehicle() {
+        void vehicle_transaction() {
             //add a vehicle from the dealership to the vector
         }
 

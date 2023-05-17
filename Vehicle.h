@@ -58,6 +58,8 @@ class Vehicle{
         virtual string get_model() {return "N/A";}
         virtual string get_number_plate() {return "N/A";}
         virtual void set_number_plate(string number_plate) {}
+        virtual void set_brand() {}
+        virtual void set_model() {}
 
 
         //truck

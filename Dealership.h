@@ -13,6 +13,7 @@ class Dealership {
         double funds;
         int parking_length;
         int parking_width;
+        //making a pointer to a pointer of class vehicle
         Vehicle** dealership;
     public:
         //constructor for dealership
@@ -173,7 +174,12 @@ class Dealership {
             }
         }
 
-        ~Dealership() {}
+        ~Dealership() {
+            for (int i = 0; i > capacity; i++) {
+                delete[] dealership[i];
+            }
+            delete[] dealership;
+        }
 };
 
 #endif
