@@ -26,7 +26,8 @@ class Buyer : public Customer {
                 //if the buyer has enough money to pay for the vehicle
                 if (wallet > vehicle_cost) {
                     cout << "the buyer has enough funds for transaction - debug message" << endl;
-                    //search through the dealership
+                    //returns the address of the vehicle removed from the dealership
+                    //The pointer in the buyer array now points to this new address
                     vehicles[vehicles_index] = dealership.remove_vehicle(number_plate);
                     cout << "vehicle added to buyer" << endl;
                     //vehicles_index increases by 1

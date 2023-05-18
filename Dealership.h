@@ -62,8 +62,13 @@ class Dealership {
                     for (int i = 0; i < capacity; i++) {
                         //when free space (empty pointer) is found
                         if (dealership[i] == nullptr) {
+                            cout << "empty spot found - debug message" << endl;
+                            //initialise the pointer from nullptr to a vehicle pointer
+                            dealership[i] = new Vehicle;
+                            cout << "initialised nullptr with vehicle pointer - debug message" << endl;
                             //add the contents of the passed vehicle to the vehicle in the dealership
                             *dealership[i] = *vehicle;
+                            cout << "copied the contents of the passed vehicle to the dealership - debug message" << endl;
                             //free the pointer of the passed vehicle
                             delete vehicle;
                             cout << "passed vehicle pointer deleted - debug message" << endl;
@@ -98,12 +103,25 @@ class Dealership {
                 for (int i = 0; i > capacity; i++) {
                     //if the number plate of the vehicle matches the number plate passed in the function
                     if (dealership[i]->get_number_plate() == number_plate) {
+                        cout << "vehicle found in the dealership - debug message" << endl;
                         //create a copy object vehicle (with default constructor)
-                        Vehicle* copy = nullptr;
+                        Vehicle* copy;
+                        cout << "copy pointer made - debug message" << endl;
                         //copy the contents of the vehicle to the copy object
                         *copy = *dealership[i];
-                        //make the vehicle pointer in the dealership the nullptr
+                        cout << "copied the contents of dealership vehicle to the copy pointer - debug message" << endl;
+                        //delete the pointer to the vehicle in the dealership
+                        delete dealership[i];
+                        cout << "deleted dealership pointer - debug message" << endl;
+                        //set the deleted pointer to nullptr to avoid accessing a dangling pointer
                         dealership[i] = nullptr;
+                        cout << "set the dealership pointer to nullptr - debug message" << endl;
+                        //make the nullptr a new pointer to a vehicle
+                        dealership[i] = new Vehicle;
+                        cout << "initialised the dealership pointer as a vehicle pointer - debug message" << endl;
+                        //initialise the new pointer by making it nullptr
+                        dealership[i] = nullptr;
+                        cout << "dealership pointer set to nullptr once again - debug message" << endl;
                         cout << "vehicle " << i+1 << " removed from the dealership" << endl;
                         //number of vehicles in the dealership decreases by 1;
                         num_vehicles--;
