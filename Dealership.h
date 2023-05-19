@@ -2,7 +2,11 @@
 #define DEALERSHIP_H
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <ctime>
 #include "Vehicle.h"
+#include "Buyer.h"
+#include "Seller.h"
 using namespace std;
 
 class Dealership {
@@ -167,8 +171,6 @@ class Dealership {
             return vehicle_cost;
         }
 
-        //(new function for printing out the full list of all vehicles onto a file and open it on screen)
-        //(all other display functions can be coded the same way)
 
         //display cars
         void display_cars() {
@@ -216,6 +218,77 @@ class Dealership {
                         cout << "error: neither type passenger or transport - debug message" << endl;
                     }
                 }
+            }
+        }
+
+        //function for writing a log of the dealership vehicles into a file
+        void write(string file_name) {
+            //
+            ofstream write_dealership(file_name); //make/open the dealership file
+            if (write_dealership.is_open()) { //check if the file was opened
+                //print the current date
+                //Get the current time
+                time_t currentTime = time(nullptr);
+
+                //Convert the current time to a string representation
+                char buffer[80];
+                strftime(buffer, sizeof(buffer), "%Y-%m-%d", localtime(&currentTime));
+
+                // Print the current date
+                write_dealership << "Current date: " << buffer << endl;
+
+                write_dealership << "list of cars:" << endl;
+                for (int i = 0; i < capacity; i++) {
+                    //display all attributes for each car on one line
+                    if (dealership[i]->get_vehicle_type() == "car") {
+                        write_dealership << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", licence plate: " << dealership[i]->get_number_plate();
+                        write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
+                        write_dealership << "kg, cost: $" << dealership[i]->get_cost() << endl;
+                    } else if (dealership[i]->get_vehicle_type() == "truck") {
+                        write_dealership << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                        write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm , weight: " << dealership[i]->get_weight();
+                        write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
+                        write_dealership << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
+                    } else if (dealership[i]->get_vehicle_type() == "van") {
+                        if (dealership[i]->get_van_type() == "passenger") {
+                            //if the van is of type passenger
+                            write_dealership << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                            write_dealership << ", van type: passenger, dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm , weight: " << dealership[i]->get_weight();
+                            write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load capacity: " << dealership[i]->get_load_capacity();
+                            write_dealership << "kg, passenger limit: " << dealership[i]->get_passenger_limit() << endl;
+                        } else if (dealership[i]->get_van_type() == "transport") {
+                            //if the van is of type transport
+                            write_dealership << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                            write_dealership << ", van type: transport, dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm , weight: " << dealership[i]->get_weight();
+                            write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
+                            write_dealership << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
+                        } else {
+                            write_dealership << "unknown van type" << endl;
+                        }
+                    } else {
+                        write_dealership << "unknown vehicle type" << endl;
+                    }
+                }
+                
+                write_dealership.close(); //close the file
+                cout << "written successfully" << endl;
+                
+            } else {
+                cout << "failed to open the file" << endl;
+            }
+        }
+
+        //read the file and print each line to the terminal
+        void read(string file_name) {
+            ifstream read_dealership(file_name);
+            if (read_dealership.is_open()) {
+                string line;
+                while (getline(read_dealership, line)) {
+                    cout << line << endl; //print each line to the terminal
+                }
+                read_dealership.close(); //close the file
+            } else {
+                cout << "failed to open the file" << endl;
             }
         }
 
