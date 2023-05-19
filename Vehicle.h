@@ -31,7 +31,7 @@ class Vehicle{
                 vehicle_type = "N/A";
             }
             else{
-                cout << "invalid inputs values for constructor " << endl;
+                cout << "invalid inputs values for constructor" << endl;
             }
         }
         
@@ -58,17 +58,21 @@ class Vehicle{
         virtual string get_model() {return "N/A";}
         virtual string get_number_plate() {return "N/A";}
         virtual void set_number_plate(string number_plate) {}
-        virtual void set_brand() {}
-        virtual void set_model() {}
+        virtual void set_brand(string brand) {}
+        virtual void set_model(string model) {}
 
 
         //truck
         virtual int get_load_volume() {return 0;}
         virtual int get_load_capacity() {return 0;}
+        virtual void set_load_volume(int load_volume) {}
+        virtual void set_load_capacity(int load_capacity) {}
 
         //van
         virtual string get_van_type() {return "N/A";}
         virtual int get_passenger_limit() {return 0;}
+        virtual void set_van_type(string van_type) {}
+        virtual void set_passenger_limit(int passenger_limit) {}
 
         //destructor
         virtual ~Vehicle() {}

@@ -18,7 +18,7 @@ class Seller : public Customer {
         //function for initialising the vehicles in the array to be sold
         void initialise_vehicles() {
             //if there is enough space in the array the for loop commences
-            for (vehicles_index; vehicles_index < vehicle_amount; vehicles_index++) {
+            for (vehicles_index = 0; vehicles_index < vehicle_amount; vehicles_index++) {
                 cout << "enter 'car', 'truck' or 'van' for the type of vehicle you want to initialise" << endl;
                 string vehicle_type;
                 cin >> vehicle_type;

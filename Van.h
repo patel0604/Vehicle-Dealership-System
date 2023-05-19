@@ -54,10 +54,22 @@ class Van : public Truck {
                 cout << "invalid input values for constructor" << endl;
             }
         }
+        //default constructor
+        Van() : Truck() {
+            passenger_limit = 0;
+        }
 
         //getters
         string get_van_type() {return van_type;}
         int get_passenger_limit() {return passenger_limit;}
+
+        //setters
+        void set_van_type(string van_type) {
+            this->van_type = van_type;
+        }
+        void set_passenger_limit(int passenger_limit) {
+            this->passenger_limit = passenger_limit;
+        }
 
         //destructor
         ~Van() {}
