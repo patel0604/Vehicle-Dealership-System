@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <limits>
 #include "Vehicle.h"
 #include "Van.h"
 #include "Car.h"
@@ -10,20 +11,35 @@ int main() {
 
     // Now writing code for main menu (user interface)
     int user_selection1;
-    
+
     cout << "Welcome to the dealership!" << endl;
-    cout << "Enter the number corresponding to which action you want to do." << endl;
     cout << "1. Adding (buying) a car to the dealership." << endl;
+    cout << "Enter the number corresponding to which action you want to do." << endl;
     cin >> user_selection1;
+    /*
+    switch (user_selection1)
+    {
+        case 1:
+            cout << "You selected 1. \n
+            Adding a car to the dealership" << endl;
+            break;
+
+        default:
+            cout << "Please select a number shown above" << endl;
+            break;
+    }
+
+    */
 
     if (user_selection1 == 1){
         // run code for adding a car to the dealership
-    } 
+    }
 
-    while (user_selection1 != 1){
+    while (user_selection1 != int){
     // if user enters a number not shown 
         cout << "Please enter a number shown." << endl;
         cin >> user_selection1;
+
     }
     
 
