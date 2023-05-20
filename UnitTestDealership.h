@@ -44,6 +44,13 @@ class UnitTestDealership {
                 cout << "function did not run successfully" << endl;
             }
 
+            //search for a vehicle by brand and model and display its position
+            dealership.search_vehicle_brand("Ford", "Mondeo");
+
+            //search for a vehicle by number plate and return its array index
+            int position = dealership.search_vehicle_number_plate("KLE38X2");
+            cout << "Mercedes-Benz Sprinter is stored in array index: " << position << endl;
+
             //save and print a log of the vehicles in the dealership
             dealership.write("dealership_log.txt");
             dealership.read("dealership_log.txt");
