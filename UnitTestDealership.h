@@ -47,6 +47,23 @@ class UnitTestDealership {
             //save and print a log of the vehicles in the dealership
             dealership.write("dealership_log.txt");
             dealership.read("dealership_log.txt");
+
+            //removing vehicles
+            Vehicle** vehicles = new Vehicle*[3];
+            for (int i = 0; i < 3; i++) {
+                vehicles[i] = nullptr;
+            }
+            vehicles[0] = dealership.remove_vehicle("KLE38X2");
+            cout << vehicles[0]->get_vehicle_type() << ", " << vehicles[0]->get_van_type() << ", " << vehicles[0]->get_load_volume() << ", " << vehicles[0]->get_passenger_limit() << endl;
+            vehicles[2] = dealership.remove_vehicle("GR389B");
+            cout << vehicles[2]->get_model() << ", " << vehicles[2]->get_number_plate() << endl;
+            vehicles[1] = dealership.remove_vehicle("UNR389");
+            cout << vehicles[1]->get_load_volume() << ", " << vehicles[1]->get_load_capacity() << endl;
             
+
+            for (int i = 0; i < 3; i++) {
+                delete vehicles[i];
+            }
+            delete[] vehicles;
         }
 };

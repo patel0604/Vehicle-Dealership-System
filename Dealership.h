@@ -81,11 +81,10 @@ class Dealership {
                             cout << "initialised nullptr with corresponding vehicle pointer - debug message" << endl;
                             //add the contents of the passed vehicle to the vehicle in the dealership
                             *dealership[i] = *vehicle;
-                            //change extra values from N/A
+                            //change extra values from default values
                             dealership[i]->set_brand(vehicle->get_brand());
                             dealership[i]->set_model(vehicle->get_model());
                             dealership[i]->set_number_plate(vehicle->get_number_plate());
-                            cout << dealership[i]->get_vehicle_type() << endl;
                             if (vehicle->get_vehicle_type() == "truck") {
                                 dealership[i]->set_load_volume(vehicle->get_load_volume());
                                 dealership[i]->set_load_capacity(vehicle->get_load_capacity());
@@ -127,33 +126,60 @@ class Dealership {
             if (num_vehicles > 0) {
                 cout << "there is at least 1 vehicle in the dealership - debug message" << endl;
                 //search through the dealership
-                for (int i = 0; i > capacity; i++) {
-                    //if the number plate of the vehicle matches the number plate passed in the function
-                    if (dealership[i]->get_number_plate() == number_plate) {
-                        cout << "vehicle found in the dealership - debug message" << endl;
-                        //create a copy object vehicle (with default constructor)
-                        Vehicle* copy;
-                        cout << "copy pointer made - debug message" << endl;
-                        //copy the contents of the vehicle to the copy object
-                        *copy = *dealership[i];
-                        cout << "copied the contents of dealership vehicle to the copy pointer - debug message" << endl;
-                        //delete the pointer to the vehicle in the dealership
-                        delete dealership[i];
-                        cout << "deleted dealership pointer - debug message" << endl;
-                        //set the deleted pointer to nullptr to avoid accessing a dangling pointer
-                        dealership[i] = nullptr;
-                        cout << "set the dealership pointer to nullptr - debug message" << endl;
-                        //make the nullptr a new pointer to a vehicle
-                        dealership[i] = new Vehicle;
-                        cout << "initialised the dealership pointer as a vehicle pointer - debug message" << endl;
-                        //initialise the new pointer by making it nullptr
-                        dealership[i] = nullptr;
-                        cout << "dealership pointer set to nullptr once again - debug message" << endl;
-                        cout << "vehicle " << i+1 << " removed from the dealership" << endl;
-                        //number of vehicles in the dealership decreases by 1;
-                        num_vehicles--;
-                        //return the pointer of the copied vehicle
-                        return copy;
+                for (int i = 0; i < capacity; i++) {
+                    //only search the index if the address is not nullptr
+                    if (dealership[i] != nullptr) {
+                        //if the number plate of the vehicle matches the number plate passed in the function
+                        cout << "searching: " << dealership[i]->get_number_plate() << " - debug message" << endl;
+                        if (dealership[i]->get_number_plate() == number_plate) {
+                            cout << "vehicle found in the dealership - debug message" << endl;
+                            //create a copy object vehicle based on the vehicle type (with default constructor)
+                            Vehicle* copy;
+                            if (dealership[i]->get_vehicle_type() == "car") {
+                                copy = new Car;
+                            } else if (dealership[i]->get_vehicle_type() == "truck") {
+                                copy = new Truck;
+                            } else if (dealership[i]->get_vehicle_type() == "van") {
+                                copy = new Van;
+                            } else {
+                                cout << "unknown vehicle type" << endl;
+                                return nullptr;
+                            }
+                            cout << "copy pointer made - debug message" << endl;
+                            //copy the contents of the vehicle to the copy object
+                            *copy = *dealership[i];
+                            cout << "copied the contents of dealership vehicle to the copy pointer - debug message" << endl;
+                            //change extra values from default values
+                            copy->set_brand(dealership[i]->get_brand());
+                            copy->set_model(dealership[i]->get_model());
+                            copy->set_number_plate(dealership[i]->get_number_plate());
+                            if (dealership[i]->get_vehicle_type() == "truck") {
+                                copy->set_load_volume(dealership[i]->get_load_volume());
+                                copy->set_load_capacity(dealership[i]->get_load_capacity());
+                            } else if (dealership[i]->get_vehicle_type() == "van") {
+                                copy->set_van_type(dealership[i]->get_van_type());
+                                copy->set_load_volume(dealership[i]->get_load_volume());
+                                copy->set_load_capacity(dealership[i]->get_load_capacity());
+                                copy->set_passenger_limit(dealership[i]->get_passenger_limit());
+                            }
+                            //delete the pointer to the vehicle in the dealership
+                            delete dealership[i];
+                            cout << "deleted dealership pointer - debug message" << endl;
+                            //set the deleted pointer to nullptr to avoid accessing a dangling pointer
+                            dealership[i] = nullptr;
+                            cout << "set the dealership pointer to nullptr - debug message" << endl;
+                            //make the nullptr a new pointer to a vehicle
+                            dealership[i] = new Vehicle;
+                            cout << "initialised the dealership pointer as a vehicle pointer - debug message" << endl;
+                            //initialise the new pointer by making it nullptr
+                            dealership[i] = nullptr;
+                            cout << "dealership pointer set to nullptr once again - debug message" << endl;
+                            cout << copy->get_brand() << " " << copy->get_model() << " removed from the dealership" << endl;
+                            //number of vehicles in the dealership decreases by 1;
+                            num_vehicles--;
+                            //return the pointer of the copied vehicle
+                            return copy;
+                        }
                     }
                 }
                 //if the vehicle with the number plate cannot be found
@@ -274,7 +300,7 @@ class Dealership {
                 // Print the current date
                 write_dealership << "Date: " << buffer << endl;
 
-                write_dealership << "List of cars:" << endl;
+                write_dealership << "List of vehicles:" << endl;
                 for (int i = 0; i < capacity; i++) {
                     //display all attributes for each car on one line
                     if (dealership[i]->get_vehicle_type() == "car") {
@@ -331,7 +357,7 @@ class Dealership {
 
         ~Dealership() {
             for (int i = 0; i > capacity; i++) {
-                delete[] dealership[i];
+                delete dealership[i];
             }
             delete[] dealership;
             cout << "dealership destructor called - debug message" << endl;
