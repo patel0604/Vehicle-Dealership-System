@@ -19,6 +19,10 @@ class UI{
 
 };
 
+void UI::runProgram(){
+    mainMenu();
+}
+
 void UI::mainMenu(){
     int user_choice1;
 
@@ -151,15 +155,16 @@ void UI::checkVehicles(){
 
         default:
         {
+            while (user_choice3 != 1
+                || user_choice3 != 2
+                || user_choice3 != 3)
             cout<<"Please choose from one of the options"<<endl;
         }
 
     }
 }
 
-void UI::runProgram(){
-    mainMenu();
-}
+
 
 int main(){
     UI ui;
