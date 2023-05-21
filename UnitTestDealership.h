@@ -1,3 +1,5 @@
+#ifndef UNITTESTDEALERSHIP_H
+#define UNITTESTDEALERSHIP_H
 #include <iostream>
 #include "Vehicle.h"
 #include "Van.h"
@@ -74,3 +76,5 @@ class UnitTestDealership {
             delete[] vehicles;
         }
 };
+
+#endif

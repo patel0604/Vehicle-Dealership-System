@@ -15,6 +15,18 @@ class Seller : public Customer {
         //seller constructor
         Seller(string name, string licence_number, double wallet, int vehicle_amount) : Customer(name, licence_number, wallet, vehicle_amount) {}
 
+        Vehicle* get_vehicle_pointer(string number_plate) {
+            for (int i = 0; i < vehicle_amount; i++) {
+                if (vehicles[i] != nullptr) {
+                    if (vehicles[i]->get_number_plate() == number_plate) {
+                        return vehicles[i];
+                    }
+                }
+            }
+            cout << "vehicle with number plate not found in seller" << endl;
+            return nullptr;
+        }
+
         //function for initialising the vehicles in the array to be sold
         void initialise_vehicles() {
             //if there is enough space in the array the for loop commences
@@ -100,7 +112,7 @@ class Seller : public Customer {
         }
 
         //remove a vehicle from the vector and add it to the dealership using its pointer
-        void vehicle_transaction(Vehicle* vehicle, Dealership dealership) { //also add a cost conditional
+        void vehicle_transaction(Vehicle* vehicle, Dealership dealership) {
             //check if there are any vehicles in the array
             if (vehicles_index > 0) {
                 cout << "there are seller vehicles to be sold - debug message" << endl;

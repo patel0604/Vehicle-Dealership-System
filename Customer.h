@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Van.h"
+#include "Dealership.h"
 using namespace std;
 
 //abstract class
@@ -42,7 +43,7 @@ class Customer {
         void change_wallet(double added_wallet) {wallet += added_wallet;}
 
         //abstract function for buying/selling vehicles
-        virtual void vehicle_transaction() = 0;
+        virtual bool vehicle_transaction(string number_plate, Dealership dealership) = 0;
 
         ~Customer() {}
 };
