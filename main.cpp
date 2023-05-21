@@ -54,6 +54,7 @@ void UI::mainMenu(){
         cin >> user_choice1;
     }
 
+    //stage 2
 
     if (user_choice1 == "1"){
         cout << "Adding (buying) a car to the dealership." << endl;
