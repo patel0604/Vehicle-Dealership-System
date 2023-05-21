@@ -112,7 +112,7 @@ class Seller : public Customer {
         }
 
         //remove a vehicle from the vector and add it to the dealership using its pointer
-        void vehicle_transaction(Vehicle* vehicle, Dealership dealership) {
+        bool vehicle_transaction(Vehicle* vehicle, Dealership dealership) {
             //check if there are any vehicles in the array
             if (vehicles_index > 0) {
                 cout << "there are seller vehicles to be sold - debug message" << endl;
@@ -128,15 +128,18 @@ class Seller : public Customer {
                         dealership.change_funds(-cost);
                         //add the cost of the car to the seller
                         change_wallet(cost);
+                        return true;
                     } else {
                         cout << "the vehicle could not be added to the dealership, terminating function" << endl;
-                        return;
+                        return false;
                     }
                 } else {
                     cout << "there are not sufficient funds in the dealership for the transaction" << endl;
+                    return false;
                 }
             } else {
                 cout << "there are no vehicles in the seller array" << endl;
+                return false;
             }
         }
 

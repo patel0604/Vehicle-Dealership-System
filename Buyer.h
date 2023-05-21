@@ -16,7 +16,7 @@ class Buyer : public Customer {
         Buyer(string name, string licence_number, double wallet, int vehicle_amount) : Customer(name, licence_number, wallet, vehicle_amount) {}
 
         //buying vehicles from the dealership if the buyer has enough funds
-        void vehicle_transaction(string number_plate, Dealership dealership) {
+        bool vehicle_transaction(string number_plate, Dealership dealership) {
             if (vehicles_index < vehicle_amount) {
                 cout << "there is space in buyer array - debug message" << endl;
                 //return the position of the vehicle with the same number plate
