@@ -1,4 +1,4 @@
-Date: 20-05-2023
+Date: 21-05-2023
 List of vehicles:
 Car: Ford Mondeo, licence plate: GR389B, dimensions: 250 x 150cm, weight: 1200kg, cost: $10000
 Truck: Volvo VNL 860, number plate: UNR389, dimensions: 300 x 200cm, weight: 2000kg, cost: $25000, load volume: 1000litres, load capacity: 500kg
