@@ -10,38 +10,48 @@ using namespace std;
 int main() {
 
     // Now writing code for main menu (user interface)
-    int user_selection1;
+    std::string user_choice1;
 
     cout << "Welcome to the dealership!" << endl;
     cout << "1. Adding (buying) a car to the dealership." << endl;
+    cout << "2. Removing (selling) a car from the dealership." << endl;
+
+    cout << "0. Close the program." << endl;
     cout << "Enter the number corresponding to which action you want to do." << endl;
-    cin >> user_selection1;
-    /*
-    switch (user_selection1)
-    {
-        case 1:
-            cout << "You selected 1. \n
-            Adding a car to the dealership" << endl;
-            break;
+    cin >> user_choice1;
+    cout << endl; // leave this here for a gap between menu and next section
+    
+    //stage 1
+    //Entering the correct input type
+    //user must input a number shown
 
-        default:
-            cout << "Please select a number shown above" << endl;
-            break;
-    }
-
-    */
-
-    if (user_selection1 == 1){
-        cout << "You selected 1." << endl;
-        // run code for adding a car to the dealership
-    }
-
-    while (user_selection1 != 1){
     // if user enters a number not shown 
-        cout << "Please enter a number shown." << endl;
-        cin >> user_selection1;
+    while (user_choice1 != "1"
+        && user_choice1 != "2"
 
+        && user_choice1 != "0"){
+
+        cout << "Please enter a number shown in the menu." << endl;
+        cin >> user_choice1;
     }
+
+
+    //cannot use a switch statement as they are only for int types
+    if (user_choice1 == "1"){
+        cout << "You selected 1. Adding (buying) a car to the dealership." << endl;
+    }
+
+    if (user_choice1 == "2"){
+        cout << "You selected 2. Removing (selling) a car from the dealership." << endl;
+    }
+
+    if (user_choice1 == "0"){
+        cout << "You selected 0. Closing the program." << endl;
+    }
+
+
+
+    
     
 
     /*
