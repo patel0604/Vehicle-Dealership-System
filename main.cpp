@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include "Dealership.h"
 #include "Vehicle.h"
 #include "Van.h"
 #include "Car.h"
@@ -8,13 +9,17 @@
 using namespace std;
 
 int main() {
-
     // Now writing code for main menu (user interface)
-    std::string user_choice1;
+    int user_choice1;
 
-    cout << "Welcome to the Dealership!" << endl;
+    cout << "*****************************************************\n";
+    cout << "               Dealership Main menu                 \n";
+    cout << "*****************************************************\n";
+
+    cout << "            Welcome to the Dealership!        " << endl;
     cout << "1. Adding (buying) a car to the dealership." << endl;
     cout << "2. Removing (selling) a car from the dealership." << endl;
+    cout << "3. Check dealership";
 
     cout << "0. Close the program." << endl;
     cout << "Enter the number corresponding to which action you want to do." << endl;
@@ -25,7 +30,75 @@ int main() {
     //Entering the correct input type
     //user must input a number shown
 
-    // if user enters a number not shown 
+    switch (user_choice1){
+        case 1:
+        {
+            //add_vehicle();
+        }
+
+        case 2:
+        {
+
+        }
+        case 0:
+        {
+            exit(0);
+        }
+
+        default:
+        {
+            cout<<"Please choose from one of the options"<<endl;
+        }
+    
+    }
+    
+    void checkdealership(); {
+
+        int user_choice2;
+
+        cout << "*****************************************************\n";
+        cout << "               Dealership inventory menu             \n";
+        cout << "*****************************************************\n";
+        cout << "          1. Amount of vehicles  \n";
+        cout << "          2. Check funds  \n";
+        cout << "          3. Deposit Funds  \n";
+        cout << "          4. Back to main menu  \n";
+        cout << "          Please select one of the options above   ";
+
+        cin>>user_choice2;
+        switch (user_choice2){
+        case 1:
+        {
+            
+        }
+
+        case 2:
+        {
+
+        }
+        case 3:
+        {
+            
+        }
+
+        case 4:
+        {
+
+        }
+
+        default:
+        {
+            cout<<"Please choose from one of the options"<<endl;
+        }
+    
+    }
+
+
+
+    }
+    
+    
+    /*// if user enters a number not shown 
     while (user_choice1 != "1"
         && user_choice1 != "2"
 
