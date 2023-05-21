@@ -35,10 +35,15 @@ int main() {
         cin >> user_choice1;
     }
 
-
+    //stage 2
+    //going down the path of the correct function
     //cannot use a switch statement as they are only for int types
+
+    std::string user_choice2;
+
     if (user_choice1 == "1"){
         cout << "You selected 1. Adding (buying) a car to the dealership." << endl;
+        cout << << endl;
     }
 
     if (user_choice1 == "2"){
