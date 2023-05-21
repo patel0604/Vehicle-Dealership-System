@@ -19,12 +19,14 @@ class UI{
 
 };
 
+// this is the first function called in the main
 void UI::runProgram(){
     mainMenu();
 }
 
 void UI::mainMenu(){
-    int user_choice1;
+    //note that this is a string
+    std::string user_choice1;
 
     cout << "*****************************************************\n";
     cout << "               Dealership Main menu                 \n";
@@ -41,39 +43,30 @@ void UI::mainMenu(){
     cout << endl; // leave this here for a gap between menu and next section
 
     //stage 1
-    //Entering the correct input type
+    //Checking for the correct input type
     //user must input a number shown
 
-    switch (user_choice1){
-        case 1:
-        {
-            cout<<"test"<<endl;
-            break;
-
-        }
-
-        case 2:
-        {
-            cout<<"test"<<endl;
-            break;
-        }
-
-        case 3:
-        {
-            checkDealership();
-            break;
-        }
-        case 0:
-        {
-            exit(0);
-        }
-
-        default:
-        {
-            cout<<"Please choose from one of the options"<<endl;
-        }
-
+    while(user_choice1 != "0" &&
+                user_choice1 != "1" &&
+                user_choice1 != "2" &&
+                user_choice1 != "3"){
+        cout << "Please enter a number shown in the main menu." << endl;
+        cin >> user_choice1;
     }
+
+
+    if (user_choice1 == "1"){
+        cout << "Adding (buying) a car to the dealership." << endl;
+    } else if (user_choice1 == "2"){
+        cout << "Removing (selling) a car from the dealership." << endl;
+    } else if (user_choice1 == "3"){
+        cout <<"Checking the dealership." << endl; 
+        checkDealership();
+    } else if (user_choice1 == "0"){
+        cout << "Closing the program." << endl;
+    } 
+    
+    
 
 }
     
