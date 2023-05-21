@@ -32,11 +32,15 @@ class Seller : public Customer {
         void initialise_vehicles() {
             //if there is enough space in the array the for loop commences
             for (vehicles_index = 0; vehicles_index < vehicle_amount; vehicles_index++) {
+                cout << "new loop started - debug message" << endl;
                 bool loop = true;
+                cout << "bool set to true - debug message" << endl;
                 while (loop) {
-                    cout << "enter 'car', 'truck' or 'van' for the type of vehicle you want to initialise" << endl;
+                    cout << "while loop started - debug message" << endl;
                     string vehicle_type;
-                    getline(cin, vehicle_type);
+                    cout << "enter 'car', 'truck' or 'van' for the type of vehicle you want to initialise" << endl;
+                    cin >> vehicle_type;
+                    cin.ignore();
                     if (vehicle_type == "car" || vehicle_type == "truck" || vehicle_type == "van") {
                         //ask basic values
                         cout << "enter the brand: " << endl;
@@ -73,7 +77,7 @@ class Seller : public Customer {
                             vehicles[vehicles_index]->set_brand(car.get_brand());
                             vehicles[vehicles_index]->set_model(car.get_model());
                             vehicles[vehicles_index]->set_number_plate(car.get_number_plate());
-                            cout << "car copied seller array - debug message" << endl;
+                            cout << "car copied to seller array - debug message" << endl;
                             //when the if statement ends, the object will delete itself
                             loop = false;
                         } else if (vehicle_type == "truck") {
@@ -95,7 +99,7 @@ class Seller : public Customer {
                             vehicles[vehicles_index]->set_number_plate(truck.get_number_plate());
                             vehicles[vehicles_index]->set_load_volume(truck.get_load_volume());
                             vehicles[vehicles_index]->set_load_capacity(truck.get_load_capacity());
-                            cout << "truck copied seller array - debug message" << endl;
+                            cout << "truck copied to seller array - debug message" << endl;
                             loop = false;
                         } else if (vehicle_type == "van") {
                             cout << "vehicle type is van - debug message" << endl;
@@ -103,7 +107,8 @@ class Seller : public Customer {
                             vehicles[vehicles_index]  = new Van;
                             string van_type;
                             cout << "enter 'passenger' or 'transport' for the van type you want to initialise: " << endl;
-                            getline(cin, van_type);
+                            cin >> van_type;
+                            cin.ignore();
                             if (van_type == "passenger") {
                                 int load_volume = 0;
                                 cout << "enter the load capacity of passengers in kg: " << endl;
@@ -123,7 +128,7 @@ class Seller : public Customer {
                                 vehicles[vehicles_index]->set_load_capacity(van.get_load_capacity());
                                 vehicles[vehicles_index]->set_van_type(van.get_van_type());
                                 vehicles[vehicles_index]->set_passenger_limit(van.get_passenger_limit());
-                                cout << "van copied seller array - debug message" << endl;
+                                cout << "van copied to seller array - debug message" << endl;
                                 loop = false;
                             } else if (van_type == "transport") {
                                 cout << "enter the load volume in L: " << endl;
@@ -144,7 +149,7 @@ class Seller : public Customer {
                                 vehicles[vehicles_index]->set_load_capacity(van.get_load_capacity());
                                 vehicles[vehicles_index]->set_van_type(van.get_van_type());
                                 vehicles[vehicles_index]->set_passenger_limit(van.get_passenger_limit());
-                                cout << "van copied seller array - debug message" << endl;
+                                cout << "van copied to seller array - debug message" << endl;
                                 loop = false;
                             } else {
                                 cout << "wrong van type entered, please try again" << endl;
@@ -174,6 +179,12 @@ class Seller : public Customer {
                         bool state = dealership->add_vehicle(vehicles[index]);
                         //if the function works as intended
                         if (state == true) {
+                            //free the pointer
+                            delete vehicles[index];
+                            cout << "seller vehicle pointer deleted - debug message" << endl;
+                            //create a placeholder default vehicle in its place to be deleted in the destructor
+                            vehicles[index] = new Vehicle;
+                            cout << "pointer set to default vehicle" << endl;
                             //subtract the cost of the vehicle from the dealership
                             dealership->change_funds(-cost);
                             cout << "funds subtracted from dealership" << endl;
