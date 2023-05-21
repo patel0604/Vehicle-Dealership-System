@@ -32,10 +32,11 @@ int main() {
     */
 
     if (user_selection1 == 1){
+        cout << "You selected 1." << endl;
         // run code for adding a car to the dealership
     }
 
-    while (user_selection1 != int){
+    while (user_selection1 != 1){
     // if user enters a number not shown 
         cout << "Please enter a number shown." << endl;
         cin >> user_selection1;
