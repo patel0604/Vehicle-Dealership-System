@@ -131,16 +131,14 @@ class Seller : public Customer {
                         return true;
                     } else {
                         cout << "the vehicle could not be added to the dealership, terminating function" << endl;
-                        return false;
                     }
                 } else {
                     cout << "there are not sufficient funds in the dealership for the transaction" << endl;
-                    return false;
                 }
             } else {
                 cout << "there are no vehicles in the seller array" << endl;
-                return false;
             }
+            return false;
         }
 
         //maybe add a function for selling all vehicles in the seller array
