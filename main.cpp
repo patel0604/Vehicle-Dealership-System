@@ -130,9 +130,12 @@ void UI::checkVehicles(){
     //user's options
     if (user_choice3 == "1"){
         cout << "You selected: List all vehicles." << endl;
-        
+        // we need a function here that prints out the vehicles
+
     } else if (user_choice3 == "2"){
         cout << "You selected: Edit Vehicle details." << endl;
+        // need to access the vehicles for editing here
+
     } else if (user_choice3 == "3"){
         cout << "Returning to main menu." << endl;
         mainMenu();
