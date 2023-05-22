@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include "Dealership.h"
+//#include "Dealership.h"
 #include "Vehicle.h"
 #include "Van.h"
 #include "Car.h"
@@ -90,7 +90,7 @@ void UI::checkDealership() {
     switch (user_choice2){
         case 1:
         {
-            cout<<"test"<<endl;
+            checkVehicles();
             break;
         }
 
