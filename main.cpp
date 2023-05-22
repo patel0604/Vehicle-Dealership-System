@@ -33,8 +33,8 @@ void UI::mainMenu(){
     cout << "*****************************************************\n";
 
     cout << "            Welcome to the Dealership!        " << endl;
-    cout << "1. Adding (buying) a car to the dealership." << endl;
-    cout << "2. Removing (selling) a car from the dealership." << endl;
+    cout << "1. Adding (buying) a vehicle to the dealership." << endl;
+    cout << "2. Removing (selling) a vehicle from the dealership." << endl;
     cout << "3. Check dealership"<<endl;
     cout << "4. Close the program." << endl;
     cout << " "<<endl;
@@ -57,9 +57,11 @@ void UI::mainMenu(){
     //stage 1.2
 
     if (user_choice1 == "1"){
-        cout << "You selected: Adding (buying) a car to the dealership." << endl;
+        cout << "You selected: Adding (buying) a vehicle to the dealership." << endl;
+        // need to access the dealership and the vehicles through here
     } else if (user_choice1 == "2"){
-        cout << "You selected: Removing (selling) a car from the dealership." << endl;
+        cout << "You selected: Removing (selling) a vehicle from the dealership." << endl;
+        // also need to access the dealership and vehciles through here
     } else if (user_choice1 == "3"){
         cout <<"Checking the dealership." << endl; 
         checkDealership();
@@ -94,7 +96,7 @@ void UI::checkDealership() {
     }
 
     if (user_choice2 == "1"){
-        cout << "You selected: Check vehicles." << endl;
+        cout << "You selected: View/Edit vehicles." << endl;
         checkVehicles();
     } else if (user_choice2 == "2"){
         cout << "You selected: Check funds." << endl;
@@ -114,7 +116,7 @@ void UI::checkVehicles(){
     cout << "*****************************************************\n";
     cout << "                Vehicles menu             \n";
     cout << "*****************************************************\n";
-    cout << "          1. List all vehicles  \n";
+    cout << "          1. View vehicle details \n";
     cout << "          2. Edit vehicle details  \n";
     cout << "          3. Back to main menu  \n";
     cout << "          Please select one of the options above   ";
@@ -129,11 +131,11 @@ void UI::checkVehicles(){
 
     //user's options
     if (user_choice3 == "1"){
-        cout << "You selected: List all vehicles." << endl;
-        // we need a function here that prints out the vehicles
+        cout << "You selected: View vehicle details." << endl;
+        // we need a function here that prints out the vehicles and all their details
 
     } else if (user_choice3 == "2"){
-        cout << "You selected: Edit Vehicle details." << endl;
+        cout << "You selected: Edit vehicle details." << endl;
         // need to access the vehicles for editing here
 
     } else if (user_choice3 == "3"){
