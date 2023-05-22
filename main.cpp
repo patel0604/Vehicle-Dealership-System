@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include "Dealership.h"
+//#include "Dealership.h"
 #include "Vehicle.h"
 #include "Van.h"
 #include "Car.h"
@@ -43,14 +43,14 @@ void UI::mainMenu(){
     switch (user_choice1){
         case 1:
         {
-            cout<<"test"<<endl;
+            cout<<"test1"<<endl;
             break;
 
         }
 
         case 2:
         {
-            cout<<"test"<<endl;
+            cout<<"test2s`"<<endl;
             break;
         }
 
@@ -90,7 +90,7 @@ void UI::checkDealership() {
     switch (user_choice2){
         case 1:
         {
-            cout<<"test"<<endl;
+            checkVehicles();
             break;
         }
 
@@ -120,38 +120,47 @@ void UI::checkDealership() {
 }
 
 void UI::checkVehicles(){
+    bool exit = false;
+    while(!exit){
+        int user_choice3;
+        cout << "*****************************************************\n";
+        cout << "                Vehicle's menu             \n";
+        cout << "*****************************************************\n";
+        cout << "          1. List all vehicles  \n";
+        cout << "          2. Edit vehicle details  \n";
+        cout << "          3. Back to main menu  \n";
+        cout << "          Please select one of the options above   ";
 
-    int user_choice3;
-    cout << "*****************************************************\n";
-    cout << "                Vehicle's menu             \n";
-    cout << "*****************************************************\n";
-    cout << "          1. List all vehicles  \n";
-    cout << "          2. Edit vehicle details  \n";
-    cout << "          3. Back to main menu  \n";
-    cout << "          Please select one of the options above   ";
+        cin>>user_choice3;
+        switch (user_choice3){
+            case 1:
+            {
+                cout<<"test"<<endl;
+                break;
+            }
 
-    cin>>user_choice3;
-    switch (user_choice3){
-        case 1:
-        {
-            cout<<"test"<<endl;
-            break;
-        }
+            case 2:
+            {
+                cout<<"test"<<endl;
+                break;
+            }
+            case 3:
+            {
+                mainMenu();
+                break;
+            }
 
-        case 2:
-        {
-            cout<<"test"<<endl;
-            break;
-        }
-        case 3:
-        {
-            mainMenu();
-            break;
-        }
+            case -1:
+            {
+                exit = true;
+                break;
+            }
 
-        default:
-        {
-            cout<<"Please choose from one of the options"<<endl;
+            default:
+            {
+                cout<<"Please choose from one of the options"<<endl;
+                break;
+            }
         }
 
     }
