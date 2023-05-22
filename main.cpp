@@ -130,6 +130,7 @@ void UI::checkVehicles(){
     //user's options
     if (user_choice3 == "1"){
         cout << "You selected: List all vehicles." << endl;
+        
     } else if (user_choice3 == "2"){
         cout << "You selected: Edit Vehicle details." << endl;
     } else if (user_choice3 == "3"){
