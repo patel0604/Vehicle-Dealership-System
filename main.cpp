@@ -11,7 +11,9 @@ using namespace std;
 class UI{
     private:
         void mainMenu();
-        void checkDealership();
+        void dealershipMenu();
+        void buyerMenu();
+        void sellerMenu();
         void checkVehicles();
 
     public:
@@ -26,63 +28,110 @@ void UI::runProgram(){
 
 void UI::mainMenu(){
     //note that this is a string
-    std::string user_choice1;
+    int user_choice1;
 
     cout << "*****************************************************\n";
     cout << "               Dealership Main menu                 \n";
     cout << "*****************************************************\n";
-
-    cout << "            Welcome to the Dealership!        " << endl;
-    cout << "1. Adding (buying) a vehicle to the dealership." << endl;
-    cout << "2. Removing (selling) a vehicle from the dealership." << endl;
-    cout << "3. Check dealership"<<endl;
-    cout << "4. Close the program." << endl;
     cout << " "<<endl;
-    cout << "Enter the number corresponding to which action you want to do." << endl;
-    cin >> user_choice1;
-    cout << endl; // leave this here for a gap between menu and next section
-
-    //stage 1.1
-    //Checking for the correct input type
-    //user must input a number shown
-
-    while(user_choice1 != "1" &&
-                user_choice1 != "2" &&
-                user_choice1 != "3" &&
-                user_choice1 != "4"){
-        cout << "Please enter a number shown in the main menu." << endl;
+    cout << "            Welcome to the Dealership!        " << endl;
+    cout << " "<<endl;
+    cout << "            1. Check Dealership menu" << endl;
+    cout << "            2. Check Buyer menu " << endl;
+    cout << "            3. Check Seller menu"<<endl;
+    cout << "            4. Close the program." << endl;
+    cout << " "<<endl;
+    
+    do
+    {
+        cout << "Enter the number corresponding to which action you want to do:" << endl;
         cin >> user_choice1;
+
+        if(user_choice1 != 1 && user_choice1 != 2 && user_choice1 != 3 && user_choice1 != 4){
+            cout<< "Invalid Option. Please choose again!"<<endl;
+        }
     }
 
-        case 2:
-        {
-            cout<<"test"<<endl;
-            break;
-        }
+    while (user_choice1 <= 0 || user_choice1 >= 5);
+    
 
-    if (user_choice1 == "1"){
-        cout << "You selected: Adding (buying) a vehicle to the dealership." << endl;
+    if (user_choice1 == 1)
+    {
+        cout << "Navigating to dealership menu.....\n" << endl;
+        dealershipMenu();
         // need to access the dealership and the vehicles through here
-    } else if (user_choice1 == "2"){
-        cout << "You selected: Removing (selling) a vehicle from the dealership." << endl;
+    } 
+    else if (user_choice1 == 2)
+    {
+        cout << "Navigating to buyer menu....." << endl;
+        buyerMenu();
         // also need to access the dealership and vehciles through here
-    } else if (user_choice1 == "3"){
-        cout <<"Checking the dealership." << endl; 
-        checkDealership();
-    } else if (user_choice1 == "4"){
-        cout << "Closing the program." << endl;
+    } 
+    else if (user_choice1 == 3)
+    {
+        cout <<"Navigating to seller menu....." << endl; 
+        sellerMenu();
     } 
     
-    
-
+    else if (user_choice1 == 4)
+    {
+        cout << "Closing the program." << endl;
+        exit(0);
+    }     
 }
-    
-void UI::checkDealership() {
+
+void UI::buyerMenu() {
 
     std::string user_choice2;
 
     cout << "*****************************************************\n";
-    cout << "               Dealership inventory menu             \n";
+    cout << "               Buyer Menu             \n";
+    cout << "*****************************************************\n";
+    cout << "          1. Buy vehicle  \n";
+    cout << "          2. Go back to main menu  \n";
+    cout << "          Please select one of the options above   ";
+
+    cin>>user_choice2;
+
+    if (user_choice2 == "1"){
+        cout << "You selected: Buy vehicle" << endl;
+
+    } else if (user_choice2 == "2"){
+        cout << "Returning to main menu." << endl;
+        mainMenu();
+    } 
+    
+}
+
+void UI::sellerMenu() {
+
+    std::string user_choice2;
+
+    cout << "*****************************************************\n";
+    cout << "               Seller Menu             \n";
+    cout << "*****************************************************\n";
+    cout << "          1. Sell a vehicle  \n";
+    cout << "          2. Go back to main menu  \n";
+    cout << "          Please select one of the options above   ";
+
+    cin>>user_choice2;
+
+    if (user_choice2 == "1"){
+        cout << "You selected: Sell vehicle " << endl;
+
+    } else if (user_choice2 == "2"){
+        cout << "Returning to main menu." << endl;
+        mainMenu();
+    } 
+    
+}
+    
+void UI::dealershipMenu() {
+
+    std::string user_choice2;
+
+    cout << "*****************************************************\n";
+    cout << "               Dealership Menu             \n";
     cout << "*****************************************************\n";
     cout << "          1. Check Vehicles  \n";
     cout << "          2. Check funds  \n";
@@ -91,27 +140,23 @@ void UI::checkDealership() {
     cout << "          Please select one of the options above   ";
 
     cin>>user_choice2;
-    switch (user_choice2){
-        case 1:
-        {
-            cout<<"test"<<endl;
-            break;
-        }
 
     if (user_choice2 == "1"){
         cout << "You selected: View/Edit vehicles." << endl;
         checkVehicles();
+
     } else if (user_choice2 == "2"){
         cout << "You selected: Check funds." << endl;
+
     } else if (user_choice2 == "3"){
         cout <<"You selected: Deposit funds." << endl; 
+
     } else if (user_choice2 == "4"){
         cout << "Returning to main menu." << endl;
         mainMenu();
     } 
     
 }
-
 
 void UI::checkVehicles(){
 
