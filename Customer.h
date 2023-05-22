@@ -47,8 +47,8 @@ class Customer {
 
         //display all customer vehicles
         void display_vehicles() {
-            cout << "list of vehicles:" << endl;
-            for (int i = 0; i < vehicles_index; i++) {
+            cout << "list of vehicles in customer:" << endl;
+            for (int i = 0; i < vehicle_amount; i++) {
                 if (vehicles[i] != nullptr) {
                     //if car
                     if (vehicles[i]->get_vehicle_type() == "car") {
