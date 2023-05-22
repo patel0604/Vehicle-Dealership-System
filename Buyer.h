@@ -55,9 +55,10 @@ class Buyer : public Customer {
 
         ~Buyer() {
             for (int i = 0; i < vehicle_amount; i++) {
-                delete[] vehicles[i];
+                delete vehicles[i];
             }
             delete[] vehicles;
+            cout << "Buyer destructor called - debug message" << endl;
         }
 };
 
