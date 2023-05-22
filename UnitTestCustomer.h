@@ -24,7 +24,7 @@ class UnitTestCustomer {
             Vehicle* truck1 = new Truck(300, 200, 2000, 25000, "Volvo", "VNL 860", "UNR389", 1000, 500);
             Vehicle* van1 = new Van(270, 175, 1400, 15000, "Mercedes-Benz", "Sprinter", "KLE38X2", 0, 400, 7);
             Buyer buyer1("John Doe", "JREO92", 55000, 3);
-            Seller seller1("Judas White", "RTN9E20", 10000, 2);
+            Seller seller1("Judas White", "RTN9E20", 10000, 3);
 
             //initialising all vehicles
             dealership.add_vehicle(car1);
@@ -64,24 +64,16 @@ class UnitTestCustomer {
             //display seller vehicles
             seller1.display_vehicles();
 
-            //sell all vehicles to the dealership
-            //vehicle 1
-            cout << "enter the number plate of the vehicle you want to sell to the dealership" << endl;
-            string number_plate;
-            cin >> number_plate;
-            if (seller1.vehicle_transaction(number_plate, &dealership)) {
-                cout << "the function ran successfully" << endl;
-            } else {
-                cout << "the function did not run successfully" << endl;
-            }
-            
-            //vehicle 2
-            cout << "enter the number plate of the vehicle you want to sell to the dealership" << endl;
-            cin >> number_plate;
-            if (seller1.vehicle_transaction(number_plate, &dealership)) {
-                cout << "the function ran successfully" << endl;
-            } else {
-                cout << "the function did not run successfully" << endl;
+            //buy all 3 vehicles from the seller
+            for (int i = 0; i < 3; i++) {
+                cout << "enter the number plate of the vehicle you want to buy from the seller:" << endl;
+                string number_plate;
+                cin >> number_plate;
+                if (seller1.vehicle_transaction(number_plate, &dealership)) {
+                    cout << "the function ran successfully" << endl;
+                } else {
+                    cout << "the function did not run successfully" << endl;
+                }
             }
 
             //display vehicles in dealership
@@ -92,6 +84,9 @@ class UnitTestCustomer {
             //display dealership and seller funds
             cout << "dealership funds are: " << dealership.get_funds() << endl;
             cout << "seller wallet is: " << seller1.get_wallet() << endl;
+
+            //display seller vehicles
+            seller1.display_vehicles();
         }
 };
 

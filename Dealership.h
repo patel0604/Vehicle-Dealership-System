@@ -95,9 +95,7 @@ class Dealership {
                                 dealership[i]->set_passenger_limit(vehicle->get_passenger_limit());
                             }
                             cout << "copied the contents of the passed vehicle to the dealership - debug message" << endl;
-                            //free the pointer of the passed vehicle
-                            delete vehicle;
-                            cout << "passed vehicle pointer deleted - debug message" << endl;
+                            //the pointer will be freed in the seller class function
                             //increase the number of vehicles in dealership
                             num_vehicles++;
                             cout << "Vehicle added to the dealership " << "at parking space: " << i+1 << endl;
@@ -227,7 +225,7 @@ class Dealership {
 
         //display cars
         void display_cars() {
-            cout << "list of cars:" << endl;
+            cout << "list of cars in dealership:" << endl;
             for (int i = 0; i < capacity; i++) {
                 //only search the pointer of it is not nullptr
                 if (dealership[i] != nullptr) {
@@ -243,7 +241,7 @@ class Dealership {
 
         //display trucks
         void display_trucks() {
-            cout << "list of trucks:" << endl;
+            cout << "list of trucks in dealership:" << endl;
             for (int i = 0; i < capacity; i++) {
                 if (dealership[i] != nullptr) {
                     //display all attributes for each truck on one line
@@ -259,7 +257,7 @@ class Dealership {
 
         //display vans
         void display_vans() {
-            cout << "list of vans:" << endl;
+            cout << "list of vans in dealership:" << endl;
             for (int i = 0; i < capacity; i++) {
                 if (dealership[i] != nullptr) {
                     //display all attributes for each van on one line
