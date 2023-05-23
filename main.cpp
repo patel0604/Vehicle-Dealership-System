@@ -232,12 +232,14 @@ void UI::dealershipMenu() {
     } else if (user_choice4 == "4") {
         cout << "dealership name: " << dealership->get_dealership_name() << ", vehicle capacity: " << dealership->get_capacity();
         cout << ", funds: $" << dealership->get_funds() << ", parking dimentions: " << dealership->get_parking_length() << " x ";
-        cout << dealership->get_parking_width() << endl;
+        cout << dealership->get_parking_width() << "cm" << endl;
         dealershipMenu();
     } else if (user_choice4 == "5") {
-        cout << "Logging current dealership status, enter the name of the log file with '.txt' at the end:" << endl;
+        cout << "Logging current dealership status, enter the name of the log file:" << endl;
         string file_name;
+        cin.ignore();
         getline(cin, file_name);
+        cout << "check" << endl;
         // Check if the file name ends with ".txt"
         if (file_name.length() < 4 || file_name.substr(file_name.length() - 4) != ".txt") {
             file_name += ".txt"; // Append ".txt" extension
@@ -288,6 +290,6 @@ int main(){
     ui.runProgram();
 
 
-
+    delete dealership;
     return 0;
 }

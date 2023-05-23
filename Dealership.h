@@ -312,34 +312,36 @@ class Dealership {
 
                 write_dealership << "List of vehicles:" << endl;
                 for (int i = 0; i < capacity; i++) {
-                    //display all attributes for each car on one line
-                    if (dealership[i]->get_vehicle_type() == "car") {
-                        write_dealership << "Car: " <<dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", licence plate: " << dealership[i]->get_number_plate();
-                        write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
-                        write_dealership << "kg, cost: $" << dealership[i]->get_cost() << endl;
-                    } else if (dealership[i]->get_vehicle_type() == "truck") {
-                        write_dealership << "Truck: " << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
-                        write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
-                        write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
-                        write_dealership << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
-                    } else if (dealership[i]->get_vehicle_type() == "van") {
-                        if (dealership[i]->get_van_type() == "passenger") {
-                            //if the van is of type passenger
-                            write_dealership << "Passenger van: " << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                    if (dealership[i] != nullptr) {
+                        //display all attributes for each car on one line
+                        if (dealership[i]->get_vehicle_type() == "car") {
+                            write_dealership << "Car: " <<dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", licence plate: " << dealership[i]->get_number_plate();
                             write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
-                            write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load capacity: " << dealership[i]->get_load_capacity();
-                            write_dealership << "kg, passenger limit: " << dealership[i]->get_passenger_limit() << endl;
-                        } else if (dealership[i]->get_van_type() == "transport") {
-                            //if the van is of type transport
-                            write_dealership << "Transport van: " << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                            write_dealership << "kg, cost: $" << dealership[i]->get_cost() << endl;
+                        } else if (dealership[i]->get_vehicle_type() == "truck") {
+                            write_dealership << "Truck: " << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
                             write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
                             write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
                             write_dealership << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
+                        } else if (dealership[i]->get_vehicle_type() == "van") {
+                            if (dealership[i]->get_van_type() == "passenger") {
+                                //if the van is of type passenger
+                                write_dealership << "Passenger van: " << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                                write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
+                                write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load capacity: " << dealership[i]->get_load_capacity();
+                                write_dealership << "kg, passenger limit: " << dealership[i]->get_passenger_limit() << endl;
+                            } else if (dealership[i]->get_van_type() == "transport") {
+                                //if the van is of type transport
+                                write_dealership << "Transport van: " << dealership[i]->get_brand() << " " << dealership[i]->get_model() << ", number plate: " << dealership[i]->get_number_plate();
+                                write_dealership << ", dimensions: " << dealership[i]->get_length() << " x " << dealership[i]->get_width() << "cm, weight: " << dealership[i]->get_weight();
+                                write_dealership << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
+                                write_dealership << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
+                            } else {
+                                write_dealership << "unknown van type" << endl;
+                            }
                         } else {
-                            write_dealership << "unknown van type" << endl;
+                            write_dealership << "unknown vehicle type" << endl;
                         }
-                    } else {
-                        write_dealership << "unknown vehicle type" << endl;
                     }
                 }
                 
