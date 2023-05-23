@@ -52,7 +52,14 @@ class Dealership {
 
         //other functions:
         //add/subtract funds
-        void change_funds(double funds_added) {funds += funds_added;}
+        void change_funds(double funds_added) {
+            //if there are enough funds in case of withdraw
+            if ((funds + funds_added) < 0) {
+                cout << "not enough funds to withdraw amount - request failed" << endl;
+            } else {
+                funds += funds_added;
+            }
+        }
 
         //add vehicle
         //pass the address to the vehicle being added as input
@@ -297,6 +304,11 @@ class Dealership {
 
                 // Print the current date
                 write_dealership << "Date: " << buffer << endl;
+
+                //print dealership information
+                write_dealership << "dealership name: " << get_dealership_name() << ", vehicle capacity: " << get_capacity();
+                write_dealership << ", funds: $" << get_funds() << ", parking dimentions: " << get_parking_length() << " x ";
+                write_dealership << get_parking_width() << endl;
 
                 write_dealership << "List of vehicles:" << endl;
                 for (int i = 0; i < capacity; i++) {

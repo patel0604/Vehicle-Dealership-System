@@ -183,8 +183,8 @@ void UI::dealershipMenu() {
     cout << "          1. Display vehicles list  \n";
     cout << "          2. Add a vehicle  \n";
     cout << "          3. Edit funds  \n";
-    cout << "          4. Dealership information \n";
-    cout << "          5. Dealership log  \n";
+    cout << "          4. Dealership information  \n";
+    cout << "          5. Log dealership status in a file  \n";
     cout << "          6. Back to main menu  \n";
     cout << "          Please select one of the options above: ";
 
@@ -206,8 +206,7 @@ void UI::dealershipMenu() {
         dealership->display_vans();
         dealershipMenu();
         // need to access the dealership and the vehicles through here
-    } 
-    else if (user_choice4 == "2") {
+    } else if (user_choice4 == "2") {
         bool loop = true;
         while (loop) {
             string vehicle_type;
@@ -224,18 +223,29 @@ void UI::dealershipMenu() {
         }
         dealershipMenu();
         // also need to access the dealership and vehciles through here
-    } 
-    
-    else if (user_choice4 == "3")
-    {
-        cout << "Closing the program." << endl;
-        exit(0);
-    }
-
-    else if (user_choice4 == "4")
-    {
-        cout << "Returning to main menu" << endl;
-        mainMenu();
+    } else if (user_choice4 == "3") {
+        cout << "Enter a number for the amount of funds you want to deposit (+) or withdraw (-)" << endl;
+        double funds;
+        cin >> funds;
+        dealership->change_funds(funds);
+        dealershipMenu();
+    } else if (user_choice4 == "4") {
+        cout << "dealership name: " << dealership->get_dealership_name() << ", vehicle capacity: " << dealership->get_capacity();
+        cout << ", funds: $" << dealership->get_funds() << ", parking dimentions: " << dealership->get_parking_length() << " x ";
+        cout << dealership->get_parking_width() << endl;
+        dealershipMenu();
+    } else if (user_choice4 == "5") {
+        cout << "Logging current dealership status, enter the name of the log file with '.txt' at the end:" << endl;
+        string file_name;
+        getline(cin, file_name);
+        // Check if the file name ends with ".txt"
+        if (file_name.length() < 4 || file_name.substr(file_name.length() - 4) != ".txt") {
+            file_name += ".txt"; // Append ".txt" extension
+        }
+        dealership->write(file_name);
+        cout << "Displaying log file" << endl;
+        dealership->read(file_name);
+        dealershipMenu();
     }
     
 }
