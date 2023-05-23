@@ -35,10 +35,12 @@ void UI::dealershipstart(){
         cout << "Type yes or no"<<endl;
         cin >> choice;
 
-        if(user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4"){
+        if(choice != "yes" && choice !="no"){
             cout<< "Invalid Option. Please choose again!"<<endl;
         }
     }
+
+    while (choice != "yes" && choice !="no");
 
     if(choice == "yes"){
         dealershipcreate();
@@ -233,10 +235,12 @@ void UI::dealershipMenu() {
     cout << "*****************************************************\n";
     cout << "               Dealership Menu             \n";
     cout << "*****************************************************\n";
-    cout << "          1. Check Vehicles  \n";
-    cout << "          2. Check funds  \n";
-    cout << "          3. Deposit Funds  \n";
-    cout << "          4. Back to main menu  \n";
+    cout << "          1. List Vehicles  \n";
+    cout << "          2. Add a vehicle  \n";
+    cout << "          3. Edit funds  \n";
+    cout << "          4. Dealership information \n";
+    cout << "          5. Dealership log  \n";
+    cout << "          6. Back to main menu  \n";
     cout << "          Please select one of the options above   ";
 
     do
