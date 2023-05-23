@@ -52,7 +52,7 @@ void UI::mainMenu(){
         }
     }
 
-    while (user_choice1 <= "0" || user_choice1 >= "5");
+    while (user_choice1 != "1" && user_choice1 != "2" && user_choice1 != "3" && user_choice1 != "4");
     
 
     if (user_choice1 == "1")
@@ -102,7 +102,7 @@ void UI::buyerMenu() {
         }
     }
 
-    while (user_choice2 <= "0" || user_choice2 >= "5");
+    while (user_choice2 != "1" && user_choice2 != "2" && user_choice2 != "3" && user_choice2 != "4");
     
 
     if (user_choice2 == "1")
@@ -146,7 +146,7 @@ void UI::sellerMenu() {
         }
     }
 
-    while (user_choice3 <= "0" || user_choice3 >= "5");
+    while (user_choice3 != "1" && user_choice3 != "2" && user_choice3 != "3" && user_choice3 != "4");
     
 
     if (user_choice3 == "1")
@@ -192,7 +192,7 @@ void UI::dealershipMenu() {
         }
     }
 
-    while (user_choice4 <= "0" || user_choice4 >= "5");
+    while (user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4");
     
 
     if (user_choice4 == "1")
