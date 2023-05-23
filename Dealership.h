@@ -75,7 +75,7 @@ class Dealership {
                             } else if (vehicle->get_vehicle_type() == "van") {
                                 dealership[i] = new Van;
                             } else {
-                                cout << "invalid vehicle type" << endl;
+                                cout << "invalid vehicle type - vehicle initialisation cancelled" << endl;
                                 return false;
                             }
                             cout << "initialised nullptr with corresponding vehicle pointer - debug message" << endl;
