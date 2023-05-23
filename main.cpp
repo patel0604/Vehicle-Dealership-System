@@ -50,12 +50,8 @@ void UI::mainMenu(){
         cin >> user_choice1;
     }
 
-<<<<<<< HEAD
-    //stage 1.2
-=======
     while (user_choice1 != "1" && user_choice1 != "2" && user_choice1 != "3" && user_choice1 != "4");
     
->>>>>>> 2ae2b02ee72c115309db1fddc2f97eda6ef69f6c
 
     if (user_choice1 == "1"){
         cout << "You selected: Adding (buying) a vehicle to the dealership." << endl;
