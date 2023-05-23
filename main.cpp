@@ -6,6 +6,7 @@
 #include "Car.h"
 #include "Truck.h"
 #include "Dealership.h"
+#include "MakeVehicle.h"
 using namespace std;
 
 class UI{
@@ -264,6 +265,20 @@ void UI::dealershipMenu() {
     } 
     else if (user_choice4 == "2")
     {
+        bool loop = true;
+                while (loop) {
+                    string vehicle_type;
+                    cout << "enter 'car', 'truck' or 'van' for the type of vehicle you want to initialise" << endl;
+                    cin >> vehicle_type;
+                    cin.ignore();
+                    if (vehicle_type == "car" || vehicle_type == "truck" || vehicle_type == "van") {
+                        MakeVehicle makeVehicle;
+                        dealership.add_vehicle(makeVehicle.initialise_vehicle(vehicle_type));
+                        loop = false;
+                    } else {
+                        cout << "entered wrong vehicle type entered, please try again" << endl;
+                    }
+                }
         cout << "......." << endl;
         // also need to access the dealership and vehciles through here
     } 

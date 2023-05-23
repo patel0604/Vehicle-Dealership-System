@@ -34,10 +34,10 @@ class MakeVehicle {
             if (vehicle_type == "car") {
                 cout << "vehicle type is car - debug message" << endl;
                 //initialise a new car with the given values
-                Car car(length, width, weight, cost, brand, model, number_plate);
+                Car* car = new Car(length, width, weight, cost, brand, model, number_plate);
                 cout << "new car initialised - debug message" << endl;
                 //return the address
-                return &car;
+                return car;
             } else if (vehicle_type == "truck") {
                 cout << "vehicle type is truck - debug message" << endl;
                 cout << "enter the load volume in L: " << endl;
@@ -47,9 +47,9 @@ class MakeVehicle {
                 int load_capacity;
                 cin >> load_capacity;
                 //initialise a new truck with the given values
-                Truck truck(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity);
+                Truck* truck = new Truck(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity);
                 //return the address
-                return &truck;
+                return truck;
             } else if (vehicle_type == "van") {
                 cout << "vehicle type is van - debug message" << endl;
                 while (true) {
@@ -66,9 +66,9 @@ class MakeVehicle {
                         int passenger_limit;
                         cin >> passenger_limit;
                         //initialise a new van with the given values
-                        Van van(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity, passenger_limit);
+                        Van* van = new Van(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity, passenger_limit);
                         //return the address
-                        return &van;
+                        return van;
                     } else if (van_type == "transport") {
                         cout << "enter the load volume in L: " << endl;
                         int load_volume;
@@ -78,14 +78,15 @@ class MakeVehicle {
                         cin >> load_capacity;
                         int passenger_limit = 0;
                         //initialise a new van with the given values
-                        Van van(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity, passenger_limit);
+                        Van* van = new Van(length, width, weight, cost, brand, model, number_plate, load_volume, load_capacity, passenger_limit);
                         //return the address
-                        return &van;
+                        return van;
                     } else {
                         cout << "wrong van type entered, please try again" << endl;
                     }
                 }
             }
+        return nullptr;
         }
 };
 
