@@ -212,6 +212,12 @@ void UI::dealershipMenu() {
         cout << "Closing the program." << endl;
         exit(0);
     }
+
+    else if (user_choice4 == "4")
+    {
+        cout << "Returning to main menu" << endl;
+        mainMenu();
+    }
     
 }
 
