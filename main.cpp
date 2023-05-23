@@ -192,12 +192,12 @@ void UI::dealershipMenu() {
         cout << "Enter the number corresponding to which action you want to do:" << endl;
         cin >> user_choice4;
 
-        if(user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4"){
+        if(user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4" && user_choice4 != "5" && user_choice4 != "6"){
             cout<< "Invalid Option. Please choose again!"<<endl;
         }
     }
 
-    while (user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4");
+    while (user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4" && user_choice4 != "5" && user_choice4 != "6");
     
 
     if (user_choice4 == "1") {
@@ -246,7 +246,7 @@ void UI::dealershipMenu() {
         cout << "Displaying log file" << endl;
         dealership->read(file_name);
         dealershipMenu();
-    }
+    } else if (user_choice4 == "6") {mainMenu();}
     
 }
 
