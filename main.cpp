@@ -96,9 +96,9 @@ void UI::mainMenu(){
     cout << " "<<endl;
     cout << "            Welcome to the Dealership!        " << endl;
     cout << " "<<endl;
-    cout << "            1. Check Dealership menu" << endl;
-    cout << "            2. Check Buyer menu " << endl;
-    cout << "            3. Check Seller menu"<<endl;
+    cout << "            1. Dealership menu" << endl;
+    cout << "            2. Buyer menu " << endl;
+    cout << "            3. Seller menu"<<endl;
     cout << "            4. Close the program." << endl;
     cout << " "<<endl;
     
@@ -135,7 +135,7 @@ void UI::buyerMenu() {
     cout << "               Buyer Menu             \n";
     cout << "*****************************************************\n";
     cout << "          1. New Buyer  \n";
-    cout << "          2. Check old buyer  \n";
+    cout << "          2. All buyers  \n";
     cout << "          3. Go back to main menu  \n";
     cout << "          4. Close Program  \n";
     cout << "          Please select one of the options above   \n";
@@ -186,9 +186,9 @@ void UI::sellerMenu() {
     cout << "*****************************************************\n";
     cout << "               Seller Menu             \n";
     cout << "*****************************************************\n";
-    cout << "          1. Sell a vehicle  \n";
-    cout << "          2. Go back to main menu  \n";
-    cout << "          3. Exit the program  \n";
+    cout << "          1. Add a seller  \n";
+    cout << "          2. All sellers  \n";
+    cout << "          3. Go back to main menu  \n";
     cout << "          Please select one of the options above   ";
 
     do
@@ -212,16 +212,16 @@ void UI::sellerMenu() {
     } 
     else if (user_choice3 == "2")
     {
-        cout << "Returning to main menu" << endl;
-        mainMenu();
+        cout << "Listing all sellers" << endl;
+        
 
         // also need to access the dealership and vehciles through here
     } 
     
     else if (user_choice3 == "3")
     {
-        cout << "Closing the program." << endl;
-        exit(0);
+        cout << "Going back to main menu" << endl;
+        mainMenu();
     }     
     
 }
