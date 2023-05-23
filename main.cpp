@@ -16,6 +16,7 @@ class UI{
         void sellerMenu();
         void checkVehicles();
         void dealershipstart();
+        void dealershipcreate();
 
     public:
         void runProgram();
@@ -30,12 +31,40 @@ void UI::dealershipstart(){
     cin>>choice;
 
     if(choice == "yes"){
-        runProgram();
+        dealershipcreate();
     }
 
     else if(choice == "no"){
         exit(0);
     }
+}
+
+void UI::dealershipcreate(){
+    string dealership_name;
+    int capacity;
+    double funds;
+    int parking_length;
+    int parking_width;
+
+    cout<< "Enter Dealership name: "<<endl;
+    cin>>dealership_name;
+
+    cout<< "Enter dealership capacity"<<endl;
+    cin>>capacity;
+
+    cout<<" Enter dealership funds"<<endl;
+    cin>>funds;
+
+    cout<< "Enter the parking length"<<endl;
+    cin>>parking_length;
+
+    cout<< "Enter the parking width"<<endl;
+    cin>>parking_width;
+
+    Dealership dealership(dealership_name, capacity, funds, parking_length, parking_width);
+
+    runProgram();
+
 }
 
 void UI::runDealership(){
