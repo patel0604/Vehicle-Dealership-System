@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
 #include <limits>
-//#include "Dealership.h"
 #include "Vehicle.h"
 #include "Van.h"
 #include "Car.h"
 #include "Truck.h"
+#include "Dealership.h"
 using namespace std;
 
 class UI{
@@ -232,6 +232,10 @@ void UI::dealershipMenu() {
 }
 
 int main(){
+    Dealership dealership1;
+
+    
+
     UI ui;
     ui.runProgram();
 
