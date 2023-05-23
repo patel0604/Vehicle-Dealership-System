@@ -36,6 +36,8 @@ class UnitTest {
             else {
                 cout<< "Test passed"<< endl;
             }
+
+            //testing negative inputs
             if (vehicle4 -> get_cost() < 0) {
                 cout<< "invalid inputs values for constructor" << endl;
             }
@@ -48,6 +50,14 @@ class UnitTest {
 
             else{
                 cout<<"test failed"<<endl;
+            }
+
+            if (vehicle1 -> get_brand() != "tt"){
+                cout<<"test failed";
+            }
+
+            else{
+                cout<<"test passed";
             }
 
 
