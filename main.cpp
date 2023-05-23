@@ -50,7 +50,12 @@ void UI::mainMenu(){
         cin >> user_choice1;
     }
 
+<<<<<<< HEAD
     //stage 1.2
+=======
+    while (user_choice1 != "1" && user_choice1 != "2" && user_choice1 != "3" && user_choice1 != "4");
+    
+>>>>>>> 2ae2b02ee72c115309db1fddc2f97eda6ef69f6c
 
     if (user_choice1 == "1"){
         cout << "You selected: Adding (buying) a vehicle to the dealership." << endl;
@@ -76,7 +81,8 @@ void UI::buyerMenu() {
     cout << "          1. New Buyer  \n";
     cout << "          2. Check old buyer  \n";
     cout << "          3. Go back to main menu  \n";
-    cout << "          Please select one of the options above   ";
+    cout << "          4. Close Program  \n";
+    cout << "          Please select one of the options above   \n";
 
     do
     {
@@ -88,7 +94,7 @@ void UI::buyerMenu() {
         }
     }
 
-    while (user_choice2 <= "0" || user_choice2 >= "5");
+    while (user_choice2 != "1" && user_choice2 != "2" && user_choice2 != "3" && user_choice2 != "4");
     
 
     if (user_choice2 == "1")
@@ -106,9 +112,15 @@ void UI::buyerMenu() {
     
     else if (user_choice2 == "3")
     {
-        cout << "Closing the program." << endl;
-        exit(0);
+        cout << "Returning to the main menu." << endl;
+        mainMenu();
     }     
+
+    else if (user_choice2 == "4")
+    {
+        cout << "Closing the program"<<endl;
+        exit(0);
+    }
 }
 
 void UI::sellerMenu() {
@@ -120,6 +132,7 @@ void UI::sellerMenu() {
     cout << "*****************************************************\n";
     cout << "          1. Sell a vehicle  \n";
     cout << "          2. Go back to main menu  \n";
+    cout << "          3. Exit the program  \n";
     cout << "          Please select one of the options above   ";
 
     do
@@ -132,7 +145,7 @@ void UI::sellerMenu() {
         }
     }
 
-    while (user_choice3 <= "0" || user_choice3 >= "5");
+    while (user_choice3 != "1" && user_choice3 != "2" && user_choice3 != "3" && user_choice3 != "4");
     
 
     if (user_choice3 == "1")
@@ -143,7 +156,9 @@ void UI::sellerMenu() {
     } 
     else if (user_choice3 == "2")
     {
-        cout << "......." << endl;
+        cout << "Returning to main menu" << endl;
+        mainMenu();
+
         // also need to access the dealership and vehciles through here
     } 
     
@@ -178,7 +193,7 @@ void UI::dealershipMenu() {
         }
     }
 
-    while (user_choice4 <= "0" || user_choice4 >= "5");
+    while (user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4");
     
 
     if (user_choice4 == "1")
