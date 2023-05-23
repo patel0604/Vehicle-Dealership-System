@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
 #include <limits>
-//#include "Dealership.h"
+
 #include "Vehicle.h"
 #include "Van.h"
 #include "Car.h"
 #include "Truck.h"
+#include "Dealership.h"
 using namespace std;
 
 class UI{
