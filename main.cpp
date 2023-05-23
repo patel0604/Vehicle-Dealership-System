@@ -15,11 +15,32 @@ class UI{
         void buyerMenu();
         void sellerMenu();
         void checkVehicles();
+        void dealershipstart();
 
     public:
         void runProgram();
+        void runDealership();
 
 };
+
+void UI::dealershipstart(){
+    std::string choice;
+    cout << "Would you like to create a dealership"<<endl;
+    cout << "Type yes or no"<<endl;
+    cin>>choice;
+
+    if(choice == "yes"){
+        runProgram();
+    }
+
+    else if(choice == "no"){
+        exit(0);
+    }
+}
+
+void UI::runDealership(){
+    dealershipstart();
+}
 
 // this is the first function called in the main
 void UI::runProgram(){
@@ -219,8 +240,14 @@ void UI::dealershipMenu() {
 }
 
 int main(){
+    //Dealership dealership1;
+
+    UI dealership;
+    dealership.runDealership();
     UI ui;
     ui.runProgram();
+
+
 
     return 0;
 }
