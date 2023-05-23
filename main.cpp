@@ -90,7 +90,8 @@ void UI::buyerMenu() {
     cout << "          1. New Buyer  \n";
     cout << "          2. Check old buyer  \n";
     cout << "          3. Go back to main menu  \n";
-    cout << "          Please select one of the options above   ";
+    cout << "          4. Close Program  \n";
+    cout << "          Please select one of the options above   \n";
 
     do
     {
@@ -120,9 +121,15 @@ void UI::buyerMenu() {
     
     else if (user_choice2 == "3")
     {
-        cout << "Closing the program." << endl;
-        exit(0);
+        cout << "Returning to the main menu." << endl;
+        mainMenu();
     }     
+
+    else if (user_choice2 == "4")
+    {
+        cout << "Closing the program"<<endl;
+        exit(0);
+    }
 }
 
 void UI::sellerMenu() {
@@ -134,6 +141,7 @@ void UI::sellerMenu() {
     cout << "*****************************************************\n";
     cout << "          1. Sell a vehicle  \n";
     cout << "          2. Go back to main menu  \n";
+    cout << "          3. Exit the program  \n";
     cout << "          Please select one of the options above   ";
 
     do
@@ -157,7 +165,9 @@ void UI::sellerMenu() {
     } 
     else if (user_choice3 == "2")
     {
-        cout << "......." << endl;
+        cout << "Returning to main menu" << endl;
+        mainMenu();
+
         // also need to access the dealership and vehciles through here
     } 
     
