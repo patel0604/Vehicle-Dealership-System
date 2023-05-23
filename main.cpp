@@ -26,9 +26,19 @@ class UI{
 
 void UI::dealershipstart(){
     std::string choice;
-    cout << "Would you like to create a dealership"<<endl;
     cout << "Type yes or no"<<endl;
     cin>>choice;
+
+    do
+    {
+        cout << "Would you like to create a dealership" << endl;
+        cout << "Type yes or no"<<endl;
+        cin >> choice;
+
+        if(user_choice4 != "1" && user_choice4 != "2" && user_choice4 != "3" && user_choice4 != "4"){
+            cout<< "Invalid Option. Please choose again!"<<endl;
+        }
+    }
 
     if(choice == "yes"){
         dealershipcreate();
