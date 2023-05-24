@@ -20,11 +20,35 @@ class UnitTestCustomer {
         void testDealership() {
             //initialise objects
             Dealership dealership("Auto shop", 3, 50000, 300, 200);
+
+            //
+            // dealership doesn't have enough money
+            // note the cost is $500000
+            Vehicle* car2 = new Car(250, 150, 1300, 500000, "Bugatti", "Tate's Bugatti", "WCIYB16");
+            dealership.add_vehicle(car2);
+            dealership.display_cars();
+
+            //
+            // vehicle dimensions not met in dealership from a seller's vehicle
+            //first create new vehicle
+            Vehicle* truck2 = new Truck(1000, 200, 2000, 25000, "Scania", "Model1", "UNR389", 1000, 500);
+            dealership.add_vehicle(truck2);
+
+
             Vehicle* car1 = new Car(250, 150, 1200, 10000, "Ford", "Mondeo", "GR389B");
             Vehicle* truck1 = new Truck(300, 200, 2000, 25000, "Volvo", "VNL 860", "UNR389", 1000, 500);
             Vehicle* van1 = new Van(270, 175, 1400, 15000, "Mercedes-Benz", "Sprinter", "KLE38X2", 0, 400, 7);
             Buyer buyer1("John Doe", "JREO92", 55000, 3);
             Seller seller1("Judas White", "RTN9E20", 10000, 4);
+
+            //
+            // testing for selling vehicles in different order
+            dealership.remove_vehicle("KLE38X2");
+            seller1.display_vehicles();
+
+            
+
+
 
             //initialising all vehicles
             dealership.add_vehicle(car1);
@@ -87,6 +111,14 @@ class UnitTestCustomer {
 
             //display seller vehicles
             seller1.display_vehicles();
+
+            
+
+
+
+            // sell more vehicles than in dealership
+            
+
         }
 };
 
