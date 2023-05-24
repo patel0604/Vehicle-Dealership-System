@@ -14,69 +14,50 @@ class Vehicle{
         double cost;
     public:
         //default constructor
-        Vehicle(){
-            vehicle_type = "N/A";
-            length = 0;
-            width = 0;
-            weight = 0;
-            cost = 0;
-        }
+        Vehicle();
+
         //constructor
-        Vehicle(int length, int width, double weight, double cost) {
-            if (length > 0 && width > 0 && weight> 0 && cost >= 0){
-                this->length = length;
-                this->width = width;
-                this->weight = weight;
-                this->cost = cost;
-                vehicle_type = "N/A";
-            }
-            else{
-                
-                cout << "invalid inputs values for constructor"<<endl;
-            }
-        }
+        Vehicle(int length, int width, double weight, double cost);
         
         //getters
-        string get_vehicle_type(){return vehicle_type;}
+        string get_vehicle_type();
 
-        double get_cost(){return cost;}
+        double get_cost();
 
-        double get_weight(){return weight;}
+        double get_weight();
 
-        int get_length(){return length;}
+        int get_length();
 
-        int get_width(){return width;}
+        int get_width();
 
         //setters
-        void set_cost(double cost){
-            this->cost = cost;
-        }
+        void set_cost(double cost);
 
         
         //virtual functions
         //car
-        virtual string get_brand() {return "N/A";}
-        virtual string get_model() {return "N/A";}
-        virtual string get_number_plate() {return "N/A";}
-        virtual void set_number_plate(string number_plate) {}
-        virtual void set_brand(string brand) {}
-        virtual void set_model(string model) {}
+        virtual string get_brand();
+        virtual string get_model();
+        virtual string get_number_plate();
+        virtual void set_number_plate(string number_plate);
+        virtual void set_brand(string brand);
+        virtual void set_model(string model);
 
 
         //truck
-        virtual int get_load_volume() {return 0;}
-        virtual int get_load_capacity() {return 0;}
-        virtual void set_load_volume(int load_volume) {}
-        virtual void set_load_capacity(int load_capacity) {}
+        virtual int get_load_volume();
+        virtual int get_load_capacity();
+        virtual void set_load_volume(int load_volume);
+        virtual void set_load_capacity(int load_capacity);
 
         //van
-        virtual string get_van_type() {return "N/A";}
-        virtual int get_passenger_limit() {return 0;}
-        virtual void set_van_type(string van_type) {}
-        virtual void set_passenger_limit(int passenger_limit) {}
+        virtual string get_van_type();
+        virtual int get_passenger_limit();
+        virtual void set_van_type(string van_type);
+        virtual void set_passenger_limit(int passenger_limit);
 
         //destructor
-        virtual ~Vehicle() {}
+        virtual ~Vehicle();
 };
 
 #endif

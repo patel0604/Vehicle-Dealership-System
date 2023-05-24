@@ -1,5 +1,5 @@
 main: main.cpp
-	g++ main.cpp -o main_test
+	g++ -Werror -std=c++11 main.cpp Dealership.cpp -o main_test
 	./main_test
 
 
