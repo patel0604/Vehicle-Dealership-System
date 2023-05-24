@@ -5,6 +5,7 @@
         "fstream": "cpp",
         "ostream": "cpp",
         "new": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "vector": "cpp"
     }
 }

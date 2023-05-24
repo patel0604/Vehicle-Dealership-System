@@ -26,6 +26,26 @@ class UI{
     public:
         UI(Dealership* dealership) {this->dealership = dealership;}
         void runProgram();
+        // vector<Buyer*> get_buyers() {return buyers;}
+        // vector<Seller*> get_sellers() {return sellers;}
+        ~UI() {
+            // Delete individual pointers for buyers
+            for (Buyer* ptr : buyers) {
+                delete ptr;
+            }
+
+            // Clear the buyers vector
+            buyers.clear();
+            cout << "cleared sellers vector - debug message" << endl;
+            //Delete individual pointers for sellers
+            for (Seller* ptr : sellers) {
+                delete ptr;
+            }
+
+            // Clear the buyers vector
+            sellers.clear();
+            cout << "cleared buyers vector - debug message" << endl;
+        }
 
 };
 
@@ -384,7 +404,6 @@ int main(){
     Dealership* dealership = new Dealership(dealership_name, capacity, funds, parking_length, parking_width);
     UI ui(dealership);
     ui.runProgram();
-
 
     delete dealership;
     return 0;
