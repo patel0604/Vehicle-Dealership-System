@@ -157,6 +157,7 @@ void UI::buyerMenu() {
         }
         //subtract 1 to get index
         num--;
+        //convert to vector index
         size_t index = num;
         //pass the index to the buyer functions menu
         buyerFunctions(index);
@@ -229,7 +230,7 @@ void UI::buyerFunctions(size_t buyer_index) {
         delete buyers[buyer_index];
         buyers.erase(buyers.begin() + buyer_index);
         cout << "Buyer successfully deleted" << endl;
-        buyerFunctions(buyer_index);
+        buyerMenu();
     } else if (user_choice5 == "4") {
         cout << "Returning to the buyers menu." << endl;
         buyerMenu();
@@ -243,7 +244,7 @@ void UI::sellerMenu() {
     cout << "*****************************************************\n";
     cout << "               Sellers Menu             \n";
     cout << "*****************************************************\n";
-    cout << "          1. Add a seller  \n";
+    cout << "          1. New seller  \n";
     cout << "          2. Select seller  \n";
     cout << "          3. Go back to main menu  \n";
     cout << "          Please select one of the options above: ";
@@ -276,7 +277,7 @@ void UI::sellerMenu() {
         int vehicle_amount;
         cin >> vehicle_amount;
         Seller* seller = new Seller(name, licence_number, wallet, vehicle_amount);
-        //add the pointer to the end of the buyers vector
+        //add the pointer to the end of the sellers vector
         sellers.push_back(seller);
         sellerMenu();
     } else if (user_choice3 == "2") {
