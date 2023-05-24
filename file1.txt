@@ -1,0 +1,4 @@
+Date: 24-05-2023
+dealership name: kosta sucks, vehicle capacity: 4, funds: $4, parking dimentions: 4 x 4
+List of vehicles:
+Truck: toyota hilux, number plate: s234, dimensions: 2 x 3cm, weight: 2kg, cost: $1234, load volume: 300litres, load capacity: 200kg

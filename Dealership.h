@@ -30,6 +30,7 @@ class Dealership {
             num_vehicles = 0;
             //making an array of size capacity for all vehicles in the dealership
             dealership = new Vehicle*[capacity];
+            //dealership is an array of vehicle pointers
             //initialising an empty array of vehicles
             //the index of the array represents the parking spaces in the dealership
             for (int i = 0; i < capacity; i++) {
