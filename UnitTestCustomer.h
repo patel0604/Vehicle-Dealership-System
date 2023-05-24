@@ -123,7 +123,7 @@ class UnitTestCustomer {
 
 
             // sell more vehicles than in dealership
-            
+            seller2.
 
 
             
