@@ -52,6 +52,7 @@ class UnitTest {
                 cout<<"test failed"<<endl;
             }
 
+            //testing the get brand function
             if (vehicle1 -> get_brand() != "tt"){
                 cout<<"test failed";
             }
@@ -59,9 +60,6 @@ class UnitTest {
             else{
                 cout<<"test passed";
             }
-
-
-
 
         }
 };
