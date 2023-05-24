@@ -404,7 +404,7 @@ void UI::dealershipMenu() {
     cout << "          4. Dealership information  \n";
     cout << "          5. Log dealership status in a file  \n";
     cout << "          6. Back to main menu  \n";
-    cout << "          Please select one of the options above: ";
+    cout << "          Please select one of the options above: \n";
 
     do {
         cout << "Enter the number corresponding to which action you want to do:" << endl;
@@ -486,9 +486,8 @@ int main(){
     //ask the user for dealership values and create a dealership
     cout << "Enter the name of the dealership:" << endl;
     string dealership_name;
-    // getline(cin, dealership_name);
-    // cin.ignore();
-    cin >> dealership_name;
+    // ws is used to skip any leading whitespace characters. It also ignores the newline characters from previous inputs. 
+    getline(cin>>ws, dealership_name);
     cout << "Enter the vehicle capacity of the dealership:" << endl;
     int capacity;
     cin >> capacity;
