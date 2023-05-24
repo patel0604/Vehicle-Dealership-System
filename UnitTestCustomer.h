@@ -25,6 +25,8 @@ class UnitTestCustomer {
 
             //
             Seller seller2("Walter", "FV1234", 100000, 5);
+            // sell more vehicles than in dealership
+            
 
 
             //
@@ -41,6 +43,12 @@ class UnitTestCustomer {
             //first create new vehicle
             Vehicle* truck2 = new Truck(1000, 200, 2000, 25000, "Scania", "Model1", "UNR389", 1000, 500);
             dealership.add_vehicle(truck2);
+
+            // sell more vehicles than in dealership
+            seller2.vehicle_transaction("UNR389", &dealership);
+            seller2.vehicle_transaction("b123", &dealership);
+            seller2.vehicle_transaction("c123", &dealership);
+            seller2.vehicle_transaction("d123", &dealership);
 
 
             Vehicle* car1 = new Car(250, 150, 1200, 10000, "Ford", "Mondeo", "GR389B");
@@ -122,8 +130,7 @@ class UnitTestCustomer {
 
 
 
-            // sell more vehicles than in dealership
-            seller2.
+            
 
 
             
