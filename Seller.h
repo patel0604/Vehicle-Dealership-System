@@ -80,6 +80,8 @@ class Seller : public Customer {
                             //add the cost of the car to the seller
                             change_wallet(cost);
                             cout << "funds added to seller" << endl;
+                            cout << "dealership funds: $" << dealership->get_funds() << endl;
+                            cout << "seller funds: $" << get_wallet() << endl;
                             return true;
                         } else {
                             cout << "the vehicle could not be added to the dealership, terminating function" << endl;

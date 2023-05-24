@@ -1,0 +1,3 @@
+Date: 24-05-2023
+dealership name: arr, vehicle capacity: 3, funds: $80000, parking dimentions: 300 x 200
+List of vehicles:

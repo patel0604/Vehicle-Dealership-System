@@ -40,6 +40,8 @@ class Buyer : public Customer {
                         //the value of the vehicle is added to the dealership's funds
                         dealership->change_funds(vehicle_cost);
                         cout << "funds added to the dealership - debug message" << endl;
+                        cout << "dealership funds: $" << dealership->get_funds() << endl;
+                        cout << "buyer funds: $" << get_wallet() << endl;
                         return true;
                     } else {
                         cout << "buyer does not have enough funds for transaction -> aborting transaction" << endl;
