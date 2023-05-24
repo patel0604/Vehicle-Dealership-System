@@ -213,9 +213,12 @@ void UI::buyerFunctions(size_t buyer_index) {
         string number_plate;
         int check = -1;
         while (check == -1) {
-            cout << "Enter the number plate of the vehicle in the dealership you want to sell" << endl;
+            cout << "Enter the number plate of the vehicle in the dealership you want to sell, enter 'stop' to cancel:" << endl;
             cin.ignore();
             getline(cin, number_plate);
+            if (number_plate == "stop") {
+                break;
+            }
             check = dealership->search_vehicle_number_plate(number_plate);
         }
         //sell the vehicle to the buyer
@@ -268,6 +271,7 @@ void UI::sellerMenu() {
         //ask user for values to initialise seller
         cout << "Enter the name of the seller" << endl;
         string name;
+        cin.ignore();
         getline(cin, name);
         cout << "Enter the seller's licence number" << endl;
         string licence_number;
@@ -280,6 +284,7 @@ void UI::sellerMenu() {
         cin >> vehicle_amount;
         Seller* seller = new Seller(name, licence_number, wallet, vehicle_amount);
         //initialise all vehicles in seller
+        cout << "Initialise all seller vehicles:" << endl;
         seller->initialise_vehicles();
         //add the pointer to the end of the sellers vector
         sellers.push_back(seller);
@@ -305,8 +310,8 @@ void UI::sellerMenu() {
         num--;
         //convert to vector index
         size_t index = num;
-        //pass the index to the buyer functions menu
-        buyerFunctions(index);
+        //pass the index to the seller functions menu
+        sellerFunctions(index);
     } else if (user_choice3 == "3") {
         cout << "Returning to main menu" << endl;
         mainMenu();
@@ -349,7 +354,7 @@ void UI::sellerFunctions(size_t seller_index) {
         cout << sellers[seller_index]->get_num_vehicles() << endl;
         //print seller vehicles
         sellers[seller_index]->display_vehicles();
-        buyerFunctions(seller_index);
+        sellerFunctions(seller_index);
     } else if (user_choice6 == "2") {
         //display all vehicles in the seller
         sellers[seller_index]->display_vehicles();
@@ -357,9 +362,12 @@ void UI::sellerFunctions(size_t seller_index) {
         string number_plate;
         int check = -1;
         while (check == -1) {
-            cout << "Enter the number plate of the vehicle in the dealership you want to sell" << endl;
+            cout << "Enter the number plate of the vehicle in the dealership you want to sell, enter 'stop' to cancel:" << endl;
             cin.ignore();
             getline(cin, number_plate);
+            if (number_plate == "stop") {
+                break;
+            }
             check = sellers[seller_index]->get_vehicle_index(number_plate);
         }
         //buy the vehicle from the seller
@@ -481,7 +489,7 @@ int main(){
     // getline(cin, dealership_name);
     // cin.ignore();
     cin >> dealership_name;
-    cout << "Enter the vehicle capcity of the dealership:" << endl;
+    cout << "Enter the vehicle capacity of the dealership:" << endl;
     int capacity;
     cin >> capacity;
     cout << "Enter the funds of the dealership:" << endl;
