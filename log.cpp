@@ -22,7 +22,7 @@ void Log::write(string file_name, Dealership dealership) {
             }
 
 
-            void read(string file_name) {
+            void Log::read(string file_name) {
             ifstream read_dealership(file_name);
             if (read_dealership.is_open()) {
                 string line;

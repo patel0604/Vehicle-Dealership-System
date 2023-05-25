@@ -5,7 +5,7 @@
 using namespace std;
 
 
-MakeVehicle::Vehicle* initialise_vehicle(string vehicle_type) {  
+Vehicle* MakeVehicle::initialise_vehicle(string vehicle_type) {  
     //ask basic values
     cout << "enter the brand: " << endl;
     string brand;
