@@ -7,7 +7,8 @@
 #include "Truck.h"
 using namespace std;
 
-//derived from truck
+// this class represents a van vehicle
+// derived from truck
 class Van : public Truck {
     private:
         //attributes

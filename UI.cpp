@@ -11,11 +11,16 @@
 #include "UI.h"
 using namespace std;
 
+// constructor
+// make the  initialised dealership pointer equal to the passed one
+UI::UI(Dealership* dealership) {this->dealership = dealership;}
+
 // this is the first function called in the main
 void UI::runProgram(){
     mainMenu();
 }
 
+// main menu function
 void UI::mainMenu(){
     //note that this is a string
     std::string user_choice1;
@@ -32,7 +37,7 @@ void UI::mainMenu(){
     cout << "            4. Close the program." << endl;
     cout << " "<<endl;
     
-    while(user_choice1 != "1" &&
+    while (user_choice1 != "1" &&
                 user_choice1 != "2" &&
                 user_choice1 != "3" &&
                 user_choice1 != "4"){
@@ -54,7 +59,7 @@ void UI::mainMenu(){
     } 
 }
 
-
+// dealership menu function
 void UI::dealershipMenu() {
 
     std::string user_choice4;
@@ -134,7 +139,7 @@ void UI::dealershipMenu() {
     
 }
 
-
+// buyer menu function
 void UI::buyerMenu() {
 
     std::string user_choice2;
@@ -208,7 +213,7 @@ void UI::buyerMenu() {
     }
 }
 
-
+// buyer functions menu function
 void UI::buyerFunctions(size_t buyer_index) {
 
     std::string user_choice5;
@@ -283,7 +288,7 @@ void UI::buyerFunctions(size_t buyer_index) {
     }
 }
 
-
+// seller menu function
 void UI::sellerMenu() {
 
     std::string user_choice3;
@@ -361,7 +366,7 @@ void UI::sellerMenu() {
     
 }
 
-
+// seller functions menu function
 void UI::sellerFunctions(size_t seller_index) {
 
     std::string user_choice6;
@@ -434,4 +439,21 @@ void UI::sellerFunctions(size_t seller_index) {
     }
 }
 
+// UI destructor, frees buyer and seller vectors
+UI::~UI() {
+    // Delete individual pointers for buyers
+    for (Buyer* ptr : buyers) {
+        delete ptr;
+    }
+
+    // Clear the buyers vector
+    buyers.clear();
+    //Delete individual pointers for sellers
+    for (Seller* ptr : sellers) {
+        delete ptr;
+    }
+
+    // Clear the buyers vector
+    sellers.clear();
+}
 
