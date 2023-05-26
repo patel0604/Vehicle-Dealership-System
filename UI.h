@@ -22,13 +22,6 @@ class UI{
         // initialise a vector of seller pointers
         vector<Seller*> sellers;
         // other private menu functions
-        void mainMenu();
-        void dealershipMenu();
-        void buyerMenu();
-        void sellerMenu();
-        void checkVehicles();
-        void buyerFunctions(size_t buyer_index);
-        void sellerFunctions(size_t seller_index);
         void main_menu();
         void dealership_menu();
         void buyer_menu();

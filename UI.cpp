@@ -20,7 +20,7 @@ void UI::runProgram(){
     main_menu();
 }
 
-void UI::mainMenu(){
+void UI::main_menu(){
     //note that this is a string
     std::string user_choice1;
 
@@ -36,7 +36,7 @@ void UI::mainMenu(){
     cout << "            4. Close the program." << endl;
     cout << " "<<endl;
     
-    while (user_choice1 != "1" &&
+    while(user_choice1 != "1" &&
                 user_choice1 != "2" &&
                 user_choice1 != "3" &&
                 user_choice1 != "4"){
@@ -59,7 +59,7 @@ void UI::mainMenu(){
 }
 
 
-void UI::dealershipMenu() {
+void UI::dealership_menu() {
 
     std::string user_choice4;
 
@@ -139,7 +139,7 @@ void UI::dealershipMenu() {
 }
 
 
-void UI::buyerMenu() {
+void UI::buyer_menu() {
 
     std::string user_choice2;
 
@@ -213,7 +213,7 @@ void UI::buyerMenu() {
 }
 
 
-void UI::buyerFunctions(size_t buyer_index) {
+void UI::buyer_functions(size_t buyer_index) {
 
     std::string user_choice5;
 
@@ -288,7 +288,7 @@ void UI::buyerFunctions(size_t buyer_index) {
 }
 
 
-void UI::sellerMenu() {
+void UI::seller_menu() {
 
     std::string user_choice3;
 
@@ -366,7 +366,7 @@ void UI::sellerMenu() {
 }
 
 
-void UI::sellerFunctions(size_t seller_index) {
+void UI::seller_functions(size_t seller_index) {
 
     std::string user_choice6;
 
