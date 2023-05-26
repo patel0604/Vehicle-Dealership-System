@@ -34,7 +34,7 @@ class UnitTest {
 
             //testing negative input. should return a error message.
             Truck truck2(550,350,2500,25000,"toyota","tvan","SW390", -23450, 12345);
-            Vehicle* vehicle4 = &truck2;
+            Vehicle* vehicle6 = &truck2;
 
             //initialise a truck
             Truck truck3; /*testing def. contructor*/

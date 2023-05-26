@@ -3,5 +3,5 @@ program: main.cpp
 	./program
 
 unit_test_program: UnitTestMain.cpp
-	g++ UnitTestMain.cpp -o unit_test_program_run
+	g++ -Werror -std=c++11 UnitTestMain.cpp dealership.cpp vehicle.cpp van.cpp truck.cpp seller.cpp makeVehicle.cpp customer.cpp car.cpp buyer.cpp -o unit_test_program_run
 	./unit_test_program_run

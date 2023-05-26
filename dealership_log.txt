@@ -1,0 +1,6 @@
+Date: 26-05-2023
+dealership name: Auto shop, vehicle capacity: 3, funds: $50000, parking dimentions: 300 x 200
+List of vehicles:
+Car: Ford Mondeo, licence plate: GR389B, dimensions: 250 x 150cm, weight: 1200kg, cost: $10000
+Truck: Volvo VNL 860, number plate: UNR389, dimensions: 300 x 200cm, weight: 2000kg, cost: $25000, load volume: 1000litres, load capacity: 500kg
+Passenger van: Mercedes-Benz Sprinter, number plate: KLE38X2, dimensions: 270 x 175cm, weight: 1400kg, cost: $15000, load capacity: 400kg, passenger limit: 7
