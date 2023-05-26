@@ -86,7 +86,7 @@ bool Seller::vehicle_transaction(string number_plate, Dealership* dealership){
 }
 
 
- Seller::~Seller() {
+Seller::~Seller() {
     for (int i = 0; i < vehicle_amount; i++) {
         delete vehicles[i];
     }
