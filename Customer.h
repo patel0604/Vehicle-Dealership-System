@@ -33,7 +33,7 @@ class Customer {
         void change_wallet(double added_wallet);
 
         //abstract function for buying/selling vehicles
-        virtual bool vehicle_transaction(string number_plate, Dealership* dealership);
+        virtual bool vehicle_transaction(string number_plate, Dealership* dealership) = 0;
 
         //display all customer vehicles
         void display_vehicles();

@@ -29,7 +29,7 @@ using namespace std;
         void Customer::change_wallet(double added_wallet) {wallet += added_wallet;}
 
         //abstract function for buying/selling vehicles
-        bool Customer::vehicle_transaction(string number_plate, Dealership* dealership) = 0;
+        // was left in the header
 
 //display all customer vehicles
         void Customer::display_vehicles() {
