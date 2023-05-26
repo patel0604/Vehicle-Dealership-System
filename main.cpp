@@ -6,6 +6,14 @@ using namespace std;
 
 
 int main(){
+    cout << endl;
+    cout << "Welcome to the dealership program!!!" << endl;
+    cout << "The program allows you to manage your dealership using your personal inputs." << endl;
+    cout << "You can buy or sell cars, trucks and vans." << endl;
+    cout << "You can set and check crucial information about your dealership." << endl;
+    // leave a space between here and the main menu
+    cout << endl;
+
     cout << "*****************************************************\n";
     cout << "               Start Menu             \n";
     cout << "*****************************************************\n";
