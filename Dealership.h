@@ -10,6 +10,7 @@
 #include "Truck.h"
 using namespace std;
 
+// this class represents the dealership which contains an array of vehicles
 class Dealership {
     private:
         int capacity;
@@ -79,6 +80,7 @@ class Dealership {
         //read the file and print each line to the terminal
         void read(string file_name);
 
+        //constructor
         ~Dealership();
 };
 
