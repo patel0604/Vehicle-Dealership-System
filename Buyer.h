@@ -7,7 +7,7 @@
 #include "Dealership.h"
 using namespace std;
 
-// this class makes represents a buyer which removes vehicles from dealership and
+// this class represents a buyer which removes vehicles from dealership and
 // adds them to an array
 // inherited from abstract class customer
 class Buyer : public Customer {
