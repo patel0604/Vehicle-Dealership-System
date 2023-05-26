@@ -4,7 +4,7 @@
 #include "Van.h"
 using namespace std;
 
-
+// ask the user for inputs to initialise a vehicle
 Vehicle* MakeVehicle::initialise_vehicle(string vehicle_type) {  
     //ask basic values
     cout << "enter the brand: " << endl;
@@ -30,14 +30,12 @@ Vehicle* MakeVehicle::initialise_vehicle(string vehicle_type) {
     cin >> cost;
 
     if (vehicle_type == "car") {
-        cout << "vehicle type is car - debug message" << endl;
         //initialise a new car with the given values
         Car* car = new Car(length, width, weight, cost, brand, model, number_plate);
         cout << "new car initialised - debug message" << endl;
         //return the address
         return car;
     } else if (vehicle_type == "truck") {
-        cout << "vehicle type is truck - debug message" << endl;
         cout << "enter the load volume in L: " << endl;
         int load_volume;
         cin >> load_volume;
@@ -49,7 +47,6 @@ Vehicle* MakeVehicle::initialise_vehicle(string vehicle_type) {
         //return the address
         return truck;
     } else if (vehicle_type == "van") {
-        cout << "vehicle type is van - debug message" << endl;
         while (true) {
             string van_type;
             cout << "enter 'passenger' or 'transport' for the van type you want to initialise: " << endl;

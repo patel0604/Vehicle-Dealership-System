@@ -5,7 +5,8 @@
 #include "Vehicle.h"
 using namespace std;
 
-//derived from vehicle
+// this class represents a car vehicle
+// derived from vehicle
 class Car : public Vehicle {
     protected:
         //attributes

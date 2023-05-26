@@ -5,7 +5,7 @@
 using namespace std;
 
 
-//def. constructor
+// default constructor
 Car::Car():Vehicle(){
             vehicle_type = "car";
             brand = "N/A";
