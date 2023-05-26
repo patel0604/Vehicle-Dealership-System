@@ -5,8 +5,9 @@
 #include "Customer.h"
 using namespace std;
 
-//constructor for customer
-Customer::Customer(string name, string licence_number, double wallet, int vehicle_amount) : name(name), licence_number(licence_number), wallet(wallet), vehicle_amount(vehicle_amount) {
+// constructor for customer
+Customer::Customer(string name, string licence_number, double wallet, int vehicle_amount)
+    : name(name), licence_number(licence_number), wallet(wallet), vehicle_amount(vehicle_amount) {
     vehicles_index = 0;
     //making an array of size num_vehicles for all vehicles the customer wants to buy/sell
     vehicles = new Vehicle*[vehicle_amount];
@@ -14,7 +15,6 @@ Customer::Customer(string name, string licence_number, double wallet, int vehicl
     for (int i = 0; i < vehicle_amount; i++) {
         vehicles[i] = nullptr;
     }
-
 }
 
 // getters
@@ -31,7 +31,7 @@ void Customer::change_wallet(double added_wallet) {wallet += added_wallet;}
 //abstract function for buying/selling vehicles
 // was left in the header
 
-//display all customer vehicles
+// display all customer vehicles
 void Customer::display_vehicles() {
     cout << "list of vehicles in customer:" << endl;
     for (int i = 0; i < vehicle_amount; i++) {
@@ -64,12 +64,12 @@ void Customer::display_vehicles() {
                     cout << "kg, cost: $" << vehicles[i]->get_cost() << ", load volume: " << vehicles[i]->get_load_volume();
                     cout << "litres, load capacity: " << vehicles[i]->get_load_capacity() << "kg" << endl;
                 } else {
-                    cout << "error: neither type passenger or transport - debug message" << endl;
+                    cout << "neither type passenger or transport" << endl;
                 }
             }
         }
     }
 }
 
-
+// destructor
 Customer::~Customer() {}

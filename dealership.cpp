@@ -8,6 +8,7 @@
 //#include "Seller.h"
 using namespace std;
 
+// dealership constructor
 Dealership::Dealership(string dealership_name, int capacity, double funds, int parking_length, int parking_width){
     this->dealership_name = dealership_name;
     this->capacity = capacity;
@@ -53,16 +54,14 @@ void Dealership::change_funds(double funds_added) {
  //add vehicle
 //pass the address to the vehicle being added as input
 bool Dealership::add_vehicle(Vehicle* vehicle) {
-    //if there is space in the dealership and the vehicle meets the spatial limitations
+    //if there is space in the dealership
     if (num_vehicles < capacity) {
-        cout << "there is space in the dealership - debug message" << endl;
+        // if the vehicle meets the spatial limitations
         if (vehicle->get_length() <= parking_length && vehicle->get_width() <= parking_width) {
-            cout << "the vehicle meets the spatial limitatios of the dealership - debug message" << endl;
-            //search through the dealership
+            // search through the dealership
             for (int i = 0; i < capacity; i++) {
-                //when free space (empty pointer) is found
+                // when free space (empty pointer) is found
                 if (dealership[i] == nullptr) {
-                    cout << "empty spot found - debug message" << endl;
                     //initialise the pointer from nullptr to a vehicle pointer based on the type of the vehicle
                     if (vehicle->get_vehicle_type() == "car") {
                         dealership[i] = new Car;
@@ -74,7 +73,6 @@ bool Dealership::add_vehicle(Vehicle* vehicle) {
                         cout << "invalid vehicle type - vehicle initialisation cancelled" << endl;
                         return false;
                     }
-                    cout << "initialised nullptr with corresponding vehicle pointer - debug message" << endl;
                     //add the contents of the passed vehicle to the vehicle in the dealership
                     *dealership[i] = *vehicle;
                     //change extra values from default values
