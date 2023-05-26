@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+// this class represents the parent vehicle
 class Vehicle{
     protected:
         // attributes

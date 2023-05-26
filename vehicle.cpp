@@ -13,7 +13,7 @@ Vehicle::Vehicle(){
     cost = 0;
 }
 
-//std. constructor
+// constructor
 Vehicle::Vehicle(int length, int width, double weight, double cost) {
     if (length > 0 && width > 0 && weight> 0 && cost >= 0){
         this->length = length;
@@ -67,6 +67,5 @@ int Vehicle::get_passenger_limit() {return 0;}
 void Vehicle::set_van_type(string van_type) {}
 void Vehicle::set_passenger_limit(int passenger_limit) {}
 
-//virtual function
-//destructor
+// virtual destructor
 Vehicle::~Vehicle() {}

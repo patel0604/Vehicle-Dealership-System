@@ -6,9 +6,12 @@
 #include <string>
 using namespace std;
 
+// constructor
 Van:: Van(int length, int width, double weight, double cost, string brand, string model, string number_plate, int load_volume, int load_capacity, int passenger_limit){
+    // if values are valid
     if (length > 0 && width > 0 && weight > 0 && cost >= 0 && brand != "" && model != "" && load_capacity > 0) {
         if (load_volume == 0 && passenger_limit != 0) {
+            // if type passenger
             vehicle_type = "van";
             van_type = "passenger"; 
             this->length = length;
@@ -22,8 +25,8 @@ Van:: Van(int length, int width, double weight, double cost, string brand, strin
             this->load_capacity = load_capacity;
             this->passenger_limit = passenger_limit;
             cout << "initialised passenger van" << endl;
-        } 
-        else if(passenger_limit == 0 && load_volume != 0) {
+        } else if(passenger_limit == 0 && load_volume != 0) {
+            // if type transport
             vehicle_type = "van";
             van_type = "transport";
             this->length = length;
@@ -47,10 +50,12 @@ Van:: Van(int length, int width, double weight, double cost, string brand, strin
     }
 }
 
+// default constructor
 Van:: Van():Truck(){
     passenger_limit = 0;
 }
 
+// getters
 string Van::get_van_type(){
     return van_type;
 }
@@ -59,6 +64,7 @@ int Van:: get_passenger_limit() {
     return passenger_limit;
 }
 
+// setters
 void Van:: set_van_type(string van_type) {
     this->van_type = van_type;
 }
@@ -67,4 +73,5 @@ void Van:: set_van_type(string van_type) {
     this->passenger_limit = passenger_limit;
 }
 
+// van destructor
 Van :: ~Van(){};
