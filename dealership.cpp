@@ -88,7 +88,6 @@ bool Dealership::add_vehicle(Vehicle* vehicle) {
                         dealership[i]->set_load_capacity(vehicle->get_load_capacity());
                         dealership[i]->set_passenger_limit(vehicle->get_passenger_limit());
                     }
-                    cout << "copied the contents of the passed vehicle to the dealership - debug message" << endl;
                     //the pointer will be freed in the seller class function
                     //increase the number of vehicles in dealership
                     num_vehicles++;
@@ -103,7 +102,7 @@ bool Dealership::add_vehicle(Vehicle* vehicle) {
     } else {
         cout << "dealership is full" << endl;
     }
-    cout << "function failed aborting - debug message" << endl;
+    cout << "adding vehicles function failed, aborting" << endl;
     return false;
 }
 
@@ -115,15 +114,12 @@ bool Dealership::add_vehicle(Vehicle* vehicle) {
 Vehicle* Dealership::remove_vehicle(string number_plate) {
     //if there is at least one vehicle in dealership
     if (num_vehicles > 0) {
-        cout << "there is at least 1 vehicle in the dealership - debug message" << endl;
         //search through the dealership
         for (int i = 0; i < capacity; i++) {
             //only search the index if the address is not nullptr
             if (dealership[i] != nullptr) {
                 //if the number plate of the vehicle matches the number plate passed in the function
-                cout << "searching: " << dealership[i]->get_number_plate() << " - debug message" << endl;
                 if (dealership[i]->get_number_plate() == number_plate) {
-                    cout << "vehicle found in the dealership - debug message" << endl;
                     //create a copy object vehicle based on the vehicle type (with default constructor)
                     Vehicle* copy;
                     if (dealership[i]->get_vehicle_type() == "car") {
@@ -136,10 +132,8 @@ Vehicle* Dealership::remove_vehicle(string number_plate) {
                         cout << "unknown vehicle type" << endl;
                         return nullptr;
                     }
-                    cout << "copy pointer made - debug message" << endl;
                     //copy the contents of the vehicle to the copy object
                     *copy = *dealership[i];
-                    cout << "copied the contents of dealership vehicle to the copy pointer - debug message" << endl;
                     //change extra values from default values
                     copy->set_brand(dealership[i]->get_brand());
                     copy->set_model(dealership[i]->get_model());
@@ -155,16 +149,12 @@ Vehicle* Dealership::remove_vehicle(string number_plate) {
                     }
                     //delete the pointer to the vehicle in the dealership
                     delete dealership[i];
-                    cout << "deleted dealership pointer - debug message" << endl;
                     //set the deleted pointer to nullptr to avoid accessing a dangling pointer
                     dealership[i] = nullptr;
-                    cout << "set the dealership pointer to nullptr - debug message" << endl;
                     //make the nullptr a new pointer to a vehicle
                     dealership[i] = new Vehicle;
-                    cout << "initialised the dealership pointer as a vehicle pointer - debug message" << endl;
                     //initialise the new pointer by making it nullptr
                     dealership[i] = nullptr;
-                    cout << "dealership pointer set to nullptr once again - debug message" << endl;
                     cout << copy->get_brand() << " " << copy->get_model() << " removed from the dealership" << endl;
                     //number of vehicles in the dealership decreases by 1;
                     num_vehicles--;
@@ -210,16 +200,16 @@ int Dealership::search_vehicle_number_plate(string number_plate) {
 }
 
 
- //pass the position of the vehicle and return its cost
+ // pass the position of the vehicle and return its cost
 double Dealership::get_vehicle_cost(int vehicle_position) {
-    //retrieve the cost of the vehicle
+    // retrieve the cost of the vehicle
     double vehicle_cost = dealership[vehicle_position]->get_cost();
-    //return the cost
+    // return the cost
     return vehicle_cost;
 }
 
 
-//display cars
+//display all cars
 void Dealership::display_cars() {
     cout << "list of cars in dealership:" << endl;
     for (int i = 0; i < capacity; i++) {
@@ -236,7 +226,7 @@ void Dealership::display_cars() {
 }
 
 
-//display trucks
+//display all trucks
 void Dealership::display_trucks() {
     cout << "list of trucks in dealership:" << endl;
     for (int i = 0; i < capacity; i++) {
@@ -272,7 +262,7 @@ void Dealership::display_vans() {
                     cout << "kg, cost: $" << dealership[i]->get_cost() << ", load volume: " << dealership[i]->get_load_volume();
                     cout << "litres, load capacity: " << dealership[i]->get_load_capacity() << "kg" << endl;
                 } else {
-                    cout << "error: neither type passenger or transport - debug message" << endl;
+                    cout << "neither type passenger or transport" << endl;
                 }
             }
         }
@@ -364,5 +354,4 @@ Dealership::~Dealership() {
         delete dealership[i];
     }
     delete[] dealership;
-    cout << "dealership destructor called - debug message" << endl;
 }

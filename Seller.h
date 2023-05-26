@@ -9,6 +9,8 @@
 
 using namespace std;
 
+// this class represents a seller which initialises vehicles and then sells them
+// to the dealership
 //inherited from abstract class customer
 class Seller : public Customer {
     private:
@@ -28,6 +30,7 @@ class Seller : public Customer {
         //maybe add a function for selling all vehicles in the seller array
         //this can be used to automate the selling process
 
+        //destructor
         ~Seller();
 };
 
