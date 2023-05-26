@@ -42,7 +42,7 @@ class Log {
 
 #endif
 
-                            if (vehicle->get_vehicle_type() == "car") {
+                            /*if (vehicle->get_vehicle_type() == "car") {
                                 dealership[i] = new Car;
                             } else if (vehicle->get_vehicle_type() == "truck") {
                                 dealership[i] = new Truck;
@@ -51,4 +51,4 @@ class Log {
                             } else {
                                 cout << "invalid vehicle type" << endl;
                                 return false;
-                            }
+                            }*/

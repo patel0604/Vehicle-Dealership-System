@@ -15,13 +15,13 @@ class UI{
         Dealership* dealership = nullptr;
         vector<Buyer*> buyers;
         vector<Seller*> sellers;
-        void mainMenu();
-        void dealershipMenu();
-        void buyerMenu();
-        void sellerMenu();
-        void checkVehicles();
-        void buyerFunctions(size_t buyer_index);
-        void sellerFunctions(size_t seller_index);
+        void main_menu();
+        void dealership_menu();
+        void buyer_menu();
+        void seller_menu();
+        void check_vehicles();
+        void buyer_functions(size_t buyer_index);
+        void seller_functions(size_t seller_index);
 
     public:
         UI(Dealership* dealership) {this->dealership = dealership;}
@@ -54,10 +54,10 @@ class UI{
 
 // this is the first function called in the main
 void UI::runProgram(){
-    mainMenu();
+    main_menu();
 }
 
-void UI::mainMenu(){
+void UI::main_menu(){
     //note that this is a string
     std::string user_choice1;
 
@@ -85,17 +85,17 @@ void UI::mainMenu(){
     
 
     if (user_choice1 == "1"){
-        dealershipMenu();
+        dealership_menu();
     } else if (user_choice1 == "2"){
-        buyerMenu();
+        buyer_menu();
     } else if (user_choice1 == "3"){
-        sellerMenu();
+        seller_menu();
     } else if (user_choice1 == "4"){
         cout << "Closing the program." << endl;
     } 
 }
 
-void UI::buyerMenu() {
+void UI::buyer_menu() {
 
     std::string user_choice2;
 
@@ -138,7 +138,7 @@ void UI::buyerMenu() {
         Buyer* buyer = new Buyer(name, licence_number, wallet, vehicle_amount);
         //add the pointer to the end of the buyers vector
         buyers.push_back(buyer);
-        buyerMenu();
+        buyer_menu();
     } else if (user_choice2 == "2") {
         //display all buyers
         for (size_t i = 0; i < buyers.size(); i++) {
@@ -161,14 +161,14 @@ void UI::buyerMenu() {
         //convert to vector index
         size_t index = num;
         //pass the index to the buyer functions menu
-        buyerFunctions(index);
+        buyer_functions(index);
     } else if (user_choice2 == "3") {
         cout << "Returning to the main menu." << endl;
-        mainMenu();
+        main_menu();
     }
 }
 
-void UI::buyerFunctions(size_t buyer_index) {
+void UI::buyer_functions(size_t buyer_index) {
 
     std::string user_choice5;
 
@@ -203,7 +203,7 @@ void UI::buyerFunctions(size_t buyer_index) {
         cout << buyers[buyer_index]->get_num_vehicles() << endl;
         //print buyer vehicles
         buyers[buyer_index]->display_vehicles();
-        buyerFunctions(buyer_index);
+        buyer_functions(buyer_index);
     } else if (user_choice5 == "2") {
         //display all vehicles in the dealership
         dealership->display_cars();
@@ -223,26 +223,26 @@ void UI::buyerFunctions(size_t buyer_index) {
         }
         //sell the vehicle to the buyer
         buyers[buyer_index]->vehicle_transaction(number_plate, dealership);
-        buyerFunctions(buyer_index);
+        buyer_functions(buyer_index);
     } else if (user_choice5 == "3") {
         cout << "are you sure you want to delete the current buyer? Enter 'yes' or 'no'" << endl;
         string confirmation;
         cin >> confirmation;
         if (confirmation != "yes") {
-            buyerFunctions(buyer_index);
+            buyer_functions(buyer_index);
         }
         //delete the element of vector at current index
         delete buyers[buyer_index];
         buyers.erase(buyers.begin() + buyer_index);
         cout << "Buyer successfully deleted" << endl;
-        buyerMenu();
+        buyer_menu();
     } else if (user_choice5 == "4") {
         cout << "Returning to the buyers menu." << endl;
-        buyerMenu();
+        buyer_menu();
     }
 }
 
-void UI::sellerMenu() {
+void UI::seller_menu() {
 
     std::string user_choice3;
 
@@ -288,7 +288,7 @@ void UI::sellerMenu() {
         seller->initialise_vehicles();
         //add the pointer to the end of the sellers vector
         sellers.push_back(seller);
-        sellerMenu();
+        seller_menu();
     } else if (user_choice3 == "2") {
         //display all buyers
         for (size_t i = 0; i < sellers.size(); i++) {
@@ -311,15 +311,15 @@ void UI::sellerMenu() {
         //convert to vector index
         size_t index = num;
         //pass the index to the seller functions menu
-        sellerFunctions(index);
+        seller_functions(index);
     } else if (user_choice3 == "3") {
         cout << "Returning to main menu" << endl;
-        mainMenu();
+        main_menu();
     }     
     
 }
 
-void UI::sellerFunctions(size_t seller_index) {
+void UI::seller_functions(size_t seller_index) {
 
     std::string user_choice6;
 
@@ -354,7 +354,7 @@ void UI::sellerFunctions(size_t seller_index) {
         cout << sellers[seller_index]->get_num_vehicles() << endl;
         //print seller vehicles
         sellers[seller_index]->display_vehicles();
-        sellerFunctions(seller_index);
+        seller_functions(seller_index);
     } else if (user_choice6 == "2") {
         //display all vehicles in the seller
         sellers[seller_index]->display_vehicles();
@@ -372,26 +372,26 @@ void UI::sellerFunctions(size_t seller_index) {
         }
         //buy the vehicle from the seller
         sellers[seller_index]->vehicle_transaction(number_plate, dealership);
-        sellerFunctions(seller_index);
+        seller_functions(seller_index);
     } else if (user_choice6 == "3") {
         cout << "are you sure you want to delete the current seller? Enter 'yes' or 'no'" << endl;
         string confirmation;
         cin >> confirmation;
         if (confirmation != "yes") {
-            sellerFunctions(seller_index);
+            seller_functions(seller_index);
         }
         //delete the element of vector at current index
         delete sellers[seller_index];
         sellers.erase(sellers.begin() + seller_index);
         cout << "Seller successfully deleted" << endl;
-        sellerMenu();
+        seller_menu();
     } else if (user_choice6 == "4") {
         cout << "Returning to the sellers menu." << endl;
-        sellerMenu();
+        seller_menu();
     }
 }
     
-void UI::dealershipMenu() {
+void UI::dealership_menu() {
 
     std::string user_choice4;
 
@@ -422,7 +422,7 @@ void UI::dealershipMenu() {
         dealership->display_cars();
         dealership->display_trucks();
         dealership->display_vans();
-        dealershipMenu();
+        dealership_menu();
         // need to access the dealership and the vehicles through here
     } else if (user_choice4 == "2") {
         bool loop = true;
@@ -439,19 +439,19 @@ void UI::dealershipMenu() {
                 cout << "entered wrong vehicle type entered, please try again" << endl;
             }
         }
-        dealershipMenu();
+        dealership_menu();
         // also need to access the dealership and vehciles through here
     } else if (user_choice4 == "3") {
         cout << "Enter a number for the amount of funds you want to deposit (+) or withdraw (-)" << endl;
         double funds;
         cin >> funds;
         dealership->change_funds(funds);
-        dealershipMenu();
+        dealership_menu();
     } else if (user_choice4 == "4") {
         cout << "dealership name: " << dealership->get_dealership_name() << ", vehicle capacity: " << dealership->get_capacity();
         cout << ", funds: $" << dealership->get_funds() << ", parking dimentions: " << dealership->get_parking_length() << " x ";
         cout << dealership->get_parking_width() << "cm" << endl;
-        dealershipMenu();
+        dealership_menu();
     } else if (user_choice4 == "5") {
         cout << "Logging current dealership status, enter the name of the log file:" << endl;
         string file_name;
@@ -465,8 +465,8 @@ void UI::dealershipMenu() {
         dealership->write(file_name);
         cout << "Displaying log file" << endl;
         dealership->read(file_name);
-        dealershipMenu();
-    } else if (user_choice4 == "6") {mainMenu();}
+        dealership_menu();
+    } else if (user_choice4 == "6") {main_menu();}
     
 }
 

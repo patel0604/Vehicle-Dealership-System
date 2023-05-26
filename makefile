@@ -1,5 +1,5 @@
 main: main.cpp
-	g++ -Werror -std=c++11 main.cpp Dealership.cpp -o main_test
+	g++ main.cpp dealership.cpp vehicle.cpp van.cpp truck.cpp seller.cpp makeVehicle.cpp customer.cpp car.cpp buyer.cpp -o main_test
 	./main_test
 
 
