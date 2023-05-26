@@ -26,7 +26,6 @@ class UI{
         void dealershipMenu();
         void buyerMenu();
         void sellerMenu();
-        void checkVehicles();
         void buyerFunctions(size_t buyer_index);
         void sellerFunctions(size_t seller_index);
 
