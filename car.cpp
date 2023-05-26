@@ -40,6 +40,5 @@ void Car::set_model(string model) {
     this->model = model;
 }
 
-
 //destructor
 Car::~Car() {}

@@ -8,8 +8,6 @@
 #include "Car.h"
 #include "Van.h"
 #include "Truck.h"
-#include "Buyer.h"
-#include "Seller.h"
 using namespace std;
 
 class Dealership {
