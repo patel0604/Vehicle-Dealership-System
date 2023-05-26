@@ -18,13 +18,12 @@ class UI{
         Dealership* dealership = nullptr;
         vector<Buyer*> buyers;
         vector<Seller*> sellers;
-        void mainMenu();
-        void dealershipMenu();
-        void buyerMenu();
-        void sellerMenu();
-        void checkVehicles();
-        void buyerFunctions(size_t buyer_index);
-        void sellerFunctions(size_t seller_index);
+        void main_menu();
+        void dealership_menu();
+        void buyer_menu();
+        void seller_menu();
+        void buyer_functions(size_t buyer_index);
+        void seller_functions(size_t seller_index);
 
     public:
         UI(Dealership* dealership) {this->dealership = dealership;}
